@@ -223,6 +223,10 @@ footer > h1, h2, h3, h4, p, a{
     .rede-social {
         grid-template-columns: 2fr;
     }
+
+    .links-cabecalho {
+        gap: 15px;
+    }
 }
 
 @media (width < 600px){
@@ -243,6 +247,9 @@ footer > h1, h2, h3, h4, p, a{
         width: 65px;
     }
 
+    .links-cabecalho {
+        gap: 12px;
+    }
 }
 
 
