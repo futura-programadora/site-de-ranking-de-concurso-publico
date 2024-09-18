@@ -240,7 +240,6 @@ footer > h1, h2, h3, h4, p, a{
         display: flex; /* Mostrar o menu quando ativado */
         font-weight: bold;
         padding-right: 0px;
-        padding: ;
         background-size: auto;
     }
 
@@ -299,5 +298,3 @@ footer > h1, h2, h3, h4, p, a{
     }
 
 }
-
-
