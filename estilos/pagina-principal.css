@@ -107,6 +107,7 @@ nav > a:hover::after {
     text-align: center;
     background-color:#4D0095;
     color: white;
+    
 }
 
 /* Estilos para a seção de planos */
@@ -216,6 +217,8 @@ footer > h1, h2, h3, h4, p, a{
     background-color: #000;
     border-radius: 5px;
 }
+
+
 
 /* Mostrar o menu hambúrguer em telas menores */
 @media (max-width: 500px) {
