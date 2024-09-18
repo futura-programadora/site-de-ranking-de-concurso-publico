@@ -20,6 +20,12 @@
                 <a href="./paginas/concursos.html">Concursos</a>
                 <button class="login" onclick="Logar()">Login</button>
             </nav>
+            <!--MENU HAMBURGUER-->
+            <div class="menu-hamburguer" onclick="toggleMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </header>
         <section class="imagem-do-site-centro">
             <img class="logo-do-site" src="./imagens/logo do site.png" alt="">
@@ -101,5 +107,11 @@
             <p>&copy;Feito por <strong><a href="https://www.facebook.com/share/ZVKE6BK1qLvUh4vJ/?mibextid=qi2Omg" target="_blank">@VionTechOfc</a></strong></p>
         </footer>
     </section>
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.links-cabecalho');
+            menu.classList.toggle('show');
+        }
+    </script>
 </body>
 </html>
