@@ -157,6 +157,15 @@
     height: 450px; 
 }
 
+.etapas-anteriores {
+    margin: auto;
+    margin-top: 20px;
+    height: 40vh;
+    width: 90vw;
+    border: 1px solid rgba(0, 0, 0, 0.537);
+    border-radius: 10px;
+    overflow-y: auto;
+}
 
 footer {
     display: flex;
