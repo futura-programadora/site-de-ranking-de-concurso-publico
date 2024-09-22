@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css">
+    <link rel="stylesheet" href="../estilos/concursos.css">
+    <link rel="shortcut icon" href="../imagens/logo do site.png" type="image/x-icon">
+    <title>Concursos</title>
+</head>
+<body>
+    <section class="container">
+        <header class="cabecalho">
+            <img class="img-cabecalho" src="../imagens/lupa_com_grafico.png" alt="">
+            <nav class="links-cabecalho"></nav>
+                <a href="../index.html">Início</a>
+                <a href="../paginas/detalhes.html">Detalhes</a>
+                <a href="#">Concursos</a>
+                <button class="login" onclick="Logar()">Login</button>
+            </nav>
+            <!--MENU HAMBURGUER-->
+            <div class="menu-hamburguer" onclick="toggleMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </header>
+        <main class="conteudo">
+            <section class="concursos-disponiveis">
+                <h2>Todos os concursos disponíveis</h2>
+                <div class="todos-os-concursos"><!--fazer aparecer aqui todos os concursos que ja foi adicionado pelo admin--></div>
+            </section>
+        </main>
+        <footer>
+            <img class="logo-do-site-footer" src="../imagens/logo do site.png" alt="">
+            <p>Nos siga nas redes sociais.Seu feedback é importante</p>
+            <section class="sociais">
+                <a class="rede" href="" target="_blank"><i class="ri-instagram-line"></i></a>
+                <a class="rede" href="" target="_blank"><i class="ri-facebook-line"></i></a>
+            </section>
+            <p>&copy;Feito por <strong><a href="https://www.facebook.com/share/ZVKE6BK1qLvUh4vJ/?mibextid=qi2Omg" target="_blank">@VionTechOfc</a></strong></p>
+        </footer>
+    </section>
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.links-cabecalho');
+            menu.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

@@ -1,14 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css">
+    <link rel="stylesheet" href="../estilos/detalhes.css">
+    <link rel="shortcut icon" href="../imagens/logo do site.png" type="image/x-icon">
     <title>detalhes</title>
 </head>
 <body>
     <section class="container">
         <header class="cabecalho">
-
+            <img class="img-cabecalho" src="../imagens/lupa_com_grafico.png" alt="">
+            <nav class="links-cabecalho"></nav>
+                <a href="../index.html">Início</a>
+                <a href="#">Detalhes</a>
+                <a href="../paginas/concursos.html">Concursos</a>
+                <button class="login" onclick="Logar()">Login</button>
+            </nav>
+            <!--MENU HAMBURGUER-->
+            <div class="menu-hamburguer" onclick="toggleMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </header>
         <main class="conteudo">
             <section class="descricao-completa">
@@ -28,7 +43,7 @@
             </section>
             <section class="formulario-de-contato">
                 <h2>Entre em contato</h2>
-                <p>Caso tenha indentificado algum problema, entre em contato com nossa equipe!</p>
+                <p>Caso tenha identificado algum problema, entre em contato com nossa equipe!</p>
                 <form class="entre-em-contato">
                     <label for="motivo-do-contato">Coloque o motivo do contato</label>
                     <input type="text" name="motivo-do-contato" id="motivo-do-contato">
@@ -38,6 +53,7 @@
                 </form>
             </section>
             <section class="avaliacoes-do-site">
+                <h2>Avaliações e feedbacks</h2>
                 <div class="avaliacoes">
                     <!--colocar as avaliações aqui usando api e js-->
                 </div>
@@ -47,12 +63,29 @@
                 <!--colocar opção de editar o comentario e apagar também-->
             </section>
             <section class="todos-os-acessos">
-
+                <h2>Acessos em nosso site. Junte-se a nós também!</h2>
+                <section class="quantidade-de-acessos">
+                    <p>Todos os acessos até hoje:</p>
+                    <div class="acessos"><!--colocar aqui--></div>
+                    <!--colocar a quantidade de pessoas que ja entraram na primeira página,e atualizar em tempo real se possível-->
+                </section>
             </section>
         </main>
         <footer>
-
+            <img class="logo-do-site-footer" src="../imagens/logo do site.png" alt="">
+            <p>Nos siga nas redes sociais.Seu feedback é importante</p>
+            <section class="sociais">
+                <a class="rede" href="" target="_blank"><i class="ri-instagram-line"></i></a>
+                <a class="rede" href="" target="_blank"><i class="ri-facebook-line"></i></a>
+            </section>
+            <p>&copy;Feito por <strong><a href="https://www.facebook.com/share/ZVKE6BK1qLvUh4vJ/?mibextid=qi2Omg" target="_blank">@VionTechOfc</a></strong></p>
         </footer>
     </section>
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.links-cabecalho');
+            menu.classList.toggle('show');
+        }
+    </script>
 </body>
 </html>

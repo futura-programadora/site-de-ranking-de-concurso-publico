@@ -12,7 +12,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 /*efeito nos links, vai até o nav > a:hover::after*/
-nav > a {
+.links-cabecalho > a {
     position: relative;
     padding-bottom: 0.75rem;
     color: #000000;
