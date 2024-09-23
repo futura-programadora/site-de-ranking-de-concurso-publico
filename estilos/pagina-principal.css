@@ -46,7 +46,7 @@ nav > a:hover::after {
 .links-cabecalho {
     display: flex;
     gap: 20px; /* Espaço entre os links */
-    flex-wrap: wrap; /* Evita que os links se movam para baixo */
+    flex-wrap: nowrap; /* Evita que os links se movam para baixo */
     font-weight: bold;
 }
 

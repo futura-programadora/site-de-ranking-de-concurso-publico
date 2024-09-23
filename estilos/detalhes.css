@@ -10,4 +10,150 @@
 body{
     background-color: white;
     font-family: Arial, Helvetica, sans-serif;
+
+}
+
+/*efeito nos links, vai até o nav > a:hover::after*/
+.links-cabecalho > a {
+    position: relative;
+    padding: 10px 10px 12px;
+    color: #000000;
+    font-weight: bold;
+}
+
+nav > a::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #6e00b8;
+    transition: all 0.3s ease;
+}
+
+nav > a:hover::after {
+    width: 70%;
+    
+}
+
+.cabecalho {
+    display: flex; /* Para alinhar os itens horizontalmente */
+    justify-content: space-between; /* Espaço entre os itens */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 10px 10px; /* Ajuste conforme necessário */
+    background-color: #fff; /* Cor de fundo */
+    width: 100%; /* Ocupa toda a largura */
+    box-sizing: border-box; /* Garante que padding e bordas não aumentem a largura */
+}
+
+.links-cabecalho {
+    display: flex;
+    gap: 20px; /* Espaço entre os links */
+    flex-wrap: nowrap; /* Evita que os links se movam para baixo */
+    font-weight: bold;
+}
+
+.menu-hamburguer {
+    cursor: pointer; /* Indica que é clicável */
+}
+
+
+.login {
+    background-color:#360267 ;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+.login:hover {
+    background-color:#5500a4 ;
+    cursor: pointer;
+}
+
+
+/* Estilos para o menu hambúrguer */
+.menu-hamburguer {
+    display: none; /* Ocultar por padrão */
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-hamburguer .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    border-radius: 5px;
+}
+
+
+
+/* Mostrar o menu hambúrguer em telas menores */
+@media (max-width: 500px) {
+    .menu-hamburguer {
+        display: flex;
+
+    }
+
+    .links-cabecalho {
+        display: none; /* Ocultar o menu padrão em telas pequenas */
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        background-color: white;
+        position: absolute;
+        top: 60px; /* Ajuste conforme necessário */
+        right: 0;
+        padding: 10px;
+    }
+
+    .links-cabecalho.show {
+        display: flex; /* Mostrar o menu quando ativado */
+        font-weight: bold;
+        padding-right: 0px;
+        background-size: auto;
+    }
+
+    .login {
+        margin-left: 10px;
+    }
+}
+
+
+
+/* Responsividade */
+
+/* Regras de mídia para dispositivos móveis */
+@media screen and (min-width: 480px) and (max-width: 768px) {
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .rede-social {
+        grid-template-columns: 2fr;
+    }
+
+}
+
+@media (width < 600px){
+
+    .login {
+        width: 80px;
+        font-size: 0.7em;
+    }
+
+    .cabecalho > nav > a {
+        font-size: 14px;
+    }
+
+    .img-cabecalho {
+        width: 70px;
+    }
+
 }
