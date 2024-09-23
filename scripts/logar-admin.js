@@ -1,0 +1,1 @@
+/*confirma se esta logado como admin ou não la na API */

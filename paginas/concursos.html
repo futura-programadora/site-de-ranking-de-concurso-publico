@@ -16,7 +16,7 @@
                 <a href="../index.html">Início</a>
                 <a href="../paginas/detalhes.html">Detalhes</a>
                 <a href="#">Concursos</a>
-                <button class="login" onclick="Logar()">Login</button>
+                <button class="login" onclick="irParaLogin()">Login</button>
             </nav>
             <!--MENU HAMBURGUER-->
             <div class="menu-hamburguer" onclick="toggleMenu()">
@@ -45,6 +45,11 @@
         function toggleMenu() {
             const menu = document.querySelector('.links-cabecalho');
             menu.classList.toggle('show');
+        }
+
+        function irParaLogin() {
+            // Substitua 'login.html' pelo caminho do seu arquivo de login
+            window.location.href = '../paginas/logar.html'; 
         }
     </script>
 </body>

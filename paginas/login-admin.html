@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login admin</title>
+    <link rel="shortcut icon" href="../imagens/logo do site.png" type="image/x-icon">
+    <link rel="stylesheet" href="../estilos/logar.css">
+</head>
+<body>
+    <section class="container">
+        <h2>Administrador</h2>
+        <img src="../imagens/lupa_com_grafico.png" alt="">
+        <p>Confirme se seu plano está em dia, caso ele não esteja em dia não será possível o acesso a sua conta</p>
+        <form class="login">
+            <input type="text" name="user-admin" id="user-admin" placeholder="Coloque seu usuario" required>
+            <input type="password" name="senha-admin" id="senha-admin" placeholder="Senha do admin" required>
+            <button onclick="LogarAdmin()">Logar</button>
+            <a href="../paginas/logar.html"><img src="../imagens/sair.png" class="sair" alt=""></a>
+        </form>
+        <a href="../paginas/logar.html">Logar como usuario</a>
+    </section>
+    <script src="../scripts/logar-admin.js"></script>
+</body>
+</html>

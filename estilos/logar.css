@@ -1,0 +1,176 @@
+@charset "UTF-8";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #0D013A, #6c3483); /* Degradê com o tom #0D013A */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: white;
+    padding: 30px; /* Aumentado o padding para aumentar a altura do formulário */
+    border-radius: 15px; /* Bordas mais arredondadas */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2), 0 0 15px rgba(255, 255, 255, 0.512); /* Efeito de luz ao redor */
+    width: 90%;
+    max-width: 400px; /* Largura máxima do formulário */
+    text-align: center; /* Centraliza o texto dentro da seção */
+    position: relative;
+}
+
+.sair-link {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.sair {
+    width: 20px;
+    height: 20px;
+}
+
+h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+p {
+    margin-bottom: 20px;
+    margin-top: 15px;
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 15px 0; /* Aumentado o espaço entre os inputs */
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Bordas mais arredondadas */
+    font-size: 16px; /* Aumenta a fonte dos inputs */
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #0D013A; /* Botão com o tom #0D013A */
+    color: white;
+    border: none;
+    border-radius: 10px; /* Bordas mais arredondadas */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s; /* Efeito de transição */
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: #732d91; /* Cor do botão ao passar o mouse */
+}
+
+a {
+    display: block; /* Faz o link ocupar toda a largura disponível */
+    margin-top: 10px; /* Espaçamento entre os links */
+    color: #6c6c6c; /* Links em cinza mais claro */
+    text-decoration: none; /* Sem decoração */
+}
+
+a:hover {
+    text-decoration: underline; /* Sublinha ao passar o mouse */
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .container {
+        padding: 15px; /* Menos padding em telas menores */
+    }
+
+    h2 {
+        font-size: 24px; /* Tamanho da fonte do título */
+    }
+
+    p {
+        font-size: 12px; /* Tamanho da fonte da descrição */
+    }
+
+    input,
+    button {
+        font-size: 14px; /* Tamanho da fonte dos inputs e botão */
+    }
+}
+
+
+/* Estilos básicos para o select */
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 15px 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    color: #333;
+    appearance: none;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Estilo para os options */
+select option {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Estilo para o select quando focado */
+select:focus {
+    outline: none;
+    border-color: #0D013A;
+}
+
+/* Estilo para o option selecionado */
+select option:checked {
+    background-color: #0D013A;
+    color: #fff;
+}
+
+/* Estilo para o option quando o mouse passa sobre ele */
+select option:hover {
+    background-color: #eee;
+}
+
+/* Estilo para simular o efeito de fundo branco que segue o mouse */
+.select-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.select-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    pointer-events: none;
+    z-index: -1;
+    transition: top 0.3s, bottom 0.3s;
+}
+
+select:hover + .select-container::after {
+    top: 50%;
+    bottom: 50%;
+}
