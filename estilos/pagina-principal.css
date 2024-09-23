@@ -259,9 +259,6 @@ footer > h1, h2, h3, h4, p, a{
 
 /* Regras de mídia para dispositivos móveis */
 @media screen and (min-width: 480px) and (max-width: 768px) {
-    .links-cabecalho {
-        /* Adicione aqui as regras específicas para links do cabeçalho em telas entre 480px e 768px */
-    }
 
     .concursos-grid {
         grid-template-columns: 1fr; /* Colunas empilhadas em telas menores */
