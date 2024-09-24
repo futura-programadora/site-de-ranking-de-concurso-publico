@@ -97,8 +97,9 @@ body{
 .usuarios, .concursos-disponiveis  {
     background-color: white;
     color: #7c7c7c;
-    height: 400px;
+    height: 450px;
     padding: 15px;
+   
 }
 
 .usuarios > h2, .concursos-disponiveis > h2 {
@@ -115,11 +116,16 @@ body{
     overflow-y: auto;
 }
 
+#onde-vai-a-estatistica {
+    width: 100px;
+    height: 35px;
+    border-radius: 10px;
+}
+
 #todos-os-usuarios-logados > p, #todos-os-concursos > p {/*css do paragrafo que sera adicionado a partir do js e api*/
     padding: 10px;
     padding-left: 15px;
 }
-
 .mais-informacoes {
     background-color: white;
     margin-top: 20px;
@@ -141,11 +147,12 @@ body{
     color: white;
     border: #4D0095;
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .mais-informacoes button:hover {
     border: 1px solid white;
-    box-shadow: 8px 8px 10px #7d00f18d;
+    box-shadow: 8px 8px 10px #9f39ff5e;
 }
 
 footer {

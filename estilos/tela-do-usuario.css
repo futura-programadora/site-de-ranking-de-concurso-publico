@@ -93,7 +93,7 @@
     justify-content: center;
 }
 
-.concurso {
+.concurso, #concurso {
     padding-right: 30px ;
 }
 
@@ -112,6 +112,25 @@
     padding: 20px;
 }
 
+.estatistica-do-mais-cobrado {
+    margin-right: 20px;
+}
+#file-list {
+    background-color: white;
+    border: 1px solid #ccc;
+    max-height: 300px; /* Ajuste a altura conforme necessário */
+    overflow-y: auto; /* Rolagem vertical */
+    padding: 10px;
+    list-style-type: none;
+    width: 350px; /* Ajuste a largura conforme necessário */
+    height: 100px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+#file-list li {
+    margin: 5px 0;
+}
+
 .imagens-informacoes-do-concurso {
     width: 65px;
 }
@@ -123,8 +142,13 @@
     padding-bottom: 30px;
 }
 
-.participantes > h2, p, .cargo > h2, p  {
+.participantes > h2, p, .cargo > h2, p,  .estatistica-do-mais-cobrado > h2{
     font-size: 1em;
+}
+
+.estatistica-do-mais-cobrado > h2 {
+    font-size: 1em;
+    padding: 10px;
 }
 
 .resultados > a, p {

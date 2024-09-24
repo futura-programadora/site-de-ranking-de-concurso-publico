@@ -13,7 +13,7 @@
         <header class="cabecalho">
             <img class="img-usuario" src="../imagens/usuario.png" alt="" onclick="menuUsuario()">
 
-            <div class="nome-do-concurso"></div>
+            <div class="nome-do-concurso" id="concurso"></div>
                 <p class="concurso">nome do concurso</p>
                 <!--retirar esse paragrafo e colocar o nome do concurso usando o js e a API-->
             </div>
@@ -32,7 +32,7 @@
 
                 <div class="mais-informacoes">
 
-                    <div class="nome-usuario"><p>nome da pessoa</p><!--colocar o nome da pessoa aqui--></div>
+                    <div class="nome-usuario">nome da pessoa<!--colocar o nome da pessoa aqui--></div>
 
                     <label for="concursos">concursos</label>
                     <select name="concursos" id="concursos">
@@ -70,6 +70,12 @@
             <div class="resultados">
                 <img class="imagens-informacoes-do-concurso" src="../imagens/resultados.png" alt="">
                 <a href="../paginas/resultados-do-usuario.html">Veja suas notas e resultados anteriores</a>
+            </div>
+
+            <div class="estatistica-do-mais-cobrado">
+                <img src="../imagens/estatistica.png" alt="">
+                <h2>Oque é mais cobrado neste concurso</h2>
+                <ul id="file-list"><p id="no-files-message" style="display: none;">Nenhum arquivo disponível para download.</p></ul>
             </div>
         </section>
 

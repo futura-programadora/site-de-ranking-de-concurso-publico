@@ -71,6 +71,17 @@
                 </button>
             </section>
 
+            <section class="estatistica">
+                <section class="arquivo-da-estatistica">
+                    <label for="estatistica">Oque é mais cobrado no concurso</label><br>
+                    <input type="file" name="estatistica" id="estatistica">
+                    <select name="onde-vai-a-estatistica" id="onde-vai-a-estatistica">
+                        <option value="1">concurso</option>
+                        <!--colocar as options com js de acordo com os concursos  que tem no sistema do site-->
+                    </select>
+                    <button onabort="enviarEstatistica()">Disponibilizar</button>
+                </section>
+            </section>
         </section>
         <footer class="footer">
             <img class="logo-do-site-footer" src="../imagens/logo do site.png" alt="">
