@@ -10,7 +10,7 @@
 body{
     background-color: white;
     font-family: Arial, Helvetica, sans-serif;
-
+    background-color: #F0E9FE;
 }
 
 /*efeito nos links, vai até o nav > a:hover::after*/
@@ -54,11 +54,7 @@ nav > a:hover::after {
     font-weight: bold;
 }
 
-.menu-hamburguer {
-    cursor: pointer; /* Indica que é clicável */
-}
-
-
+/*botão de login*/
 .login {
     background-color:#360267 ;
     width: 100px;
@@ -90,7 +86,250 @@ nav > a:hover::after {
     border-radius: 5px;
 }
 
+.menu-hamburguer {
+    cursor: pointer; /* Indica que é clicável */
+}
 
+/*descrição completa do site*/
+.descricao-completa {
+    background-color: white;
+    margin: 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.222);
+}
+
+.descricao-completa p {
+    padding: 15px;
+    text-align: justify;
+    color: black;
+}
+
+.descricao-completa h2 {
+    text-align: center;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    color: black;
+}
+
+.video-sobre-site {
+    margin: auto;
+    height: 215px;
+    width: 350px;
+}
+
+video {
+    height: 215px;
+    width: 350px;
+
+}
+
+.especificacoes-tecnicas {
+    padding: 25px;
+    text-align: justify;
+    margin: 20px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.222);
+}
+
+.especificacoes-tecnicas li {
+    padding-left: 10px;
+    padding-bottom: 8px;
+}
+
+.especificacoes-tecnicas h2, .especificacoes-tecnicas h3 {
+    color: #3c0074;
+    padding-top: 20px;
+}
+
+.nossos-planos {
+    background-color: #5500a4;
+    text-shadow: 4px 4px 4px #7100dc;
+    width: 70%;
+    margin: auto;
+}
+
+.nossos-planos p {
+    background-color: #5500a4;
+    padding: 15px;
+    text-align: justify;
+}
+
+.nossos-planos h2 {
+    text-align: center;
+    border-bottom-left-radius: 20px;
+    background-color: #240046;
+    border: 1px solid white;
+}
+
+.formulario-de-contato {
+    margin: auto;
+    margin-top: 20px;
+    background-color: white;
+    padding: 15px;
+}
+
+.formulario-de-contato h2, .formulario-de-contato p {
+    color: black;
+    text-align: center;
+}
+
+.entre-em-contato {
+    background-color: #c180ff7d;
+    width: 65%;
+    margin: auto;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box; /* Inclui padding e border na largura e altura total */
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+textarea {
+    height: 100px; /* Altura inicial */
+    resize: vertical; /* Permitir redimensionar verticalmente */
+}
+
+textarea::placeholder {
+    text-align: start; /* Alinha o placeholder ao início do input */
+    vertical-align: top; /* Alinha o placeholder ao topo */
+}
+
+.entre-em-contato button {
+    background-color: #240046;
+    color: white;
+    border: none;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.entre-em-contato button:hover {
+    background-color: #52009e;
+}
+
+.avaliacoes-do-site {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.avaliacoes-do-site h2 {
+    margin-bottom: 20px;
+    color: black;
+}
+
+.avaliacoes {
+    max-height: 300px; /* Altura máxima da div */
+    overflow-y: auto; /* Adiciona barra de rolagem vertical */
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+    height: 250px;
+}
+
+.avaliacoes p {
+    word-wrap: break-word; /* Permite quebra de palavras */
+    margin: 0 0 10px 0;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: black;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #20006f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #180050;
+}
+
+#emoji-select {
+    padding: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.186);
+    border-radius: 10px;
+}
+
+/* Estilos para o rodapé */
+footer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    background-color: #240046;
+    height: 200px;
+}
+
+footer > h1, h2, h3, h4, p, a{
+    padding: 10px;
+    color: white;
+}
+
+.sociais {
+    font-size: 25px;
+    padding: 10px;
+}
+
+.rede-social {
+    grid-template-columns: 2fr;
+    border-radius:60px ;
+    border: 1px solid white;
+    padding: 6px;
+}
+
+.logo-do-site-footer {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.footer {
+    text-align: center;
+    flex-direction: column;
+
+    margin-left: 20px; /* Espaço entre a imagem e o texto do rodapé */
+}
+
+.footer a {
+    color: #000;
+    margin: 0 10px;
+}
 
 /* Mostrar o menu hambúrguer em telas menores */
 @media (max-width: 500px) {
@@ -120,6 +359,15 @@ nav > a:hover::after {
 
     .login {
         margin-left: 10px;
+    }
+
+    .nossos-planos {
+        width: 100%;
+        margin: auto;
+    }
+
+    .avaliacoes-do-site div {
+        width: 90%;
     }
 }
 
