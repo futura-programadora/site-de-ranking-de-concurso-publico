@@ -100,16 +100,21 @@
 /* Outras regras de estilo para a página */
 
 .video {
-    height: 450px;
-    background-color: #F0E9FE;
-    text-align: center;
     margin: auto;
-    padding: 20px;
+    height: 315px;
+    width: 450px;
+}
+
+video {
+    height: 315px;
+    width: 450px;
+
 }
 
 .informacoes-do-concurso {
     background-color: #F0E9FE;
     padding: 20px;
+    margin: 15px;
 }
 
 .estatistica-do-mais-cobrado {
@@ -189,6 +194,7 @@
     border: 1px solid rgba(0, 0, 0, 0.537);
     border-radius: 10px;
     overflow-y: auto;
+    padding: 10px;
 }
 
 footer {
@@ -259,5 +265,17 @@ footer {
 
     .resultados > a, p {
         font-size: 0.8em;
+    }
+
+    .video{
+        margin:auto;
+        height: 170px;
+        width: 305px;
+    }
+    
+    video {
+        height: 170px;
+        width: 305px;
+    
     }
 }
