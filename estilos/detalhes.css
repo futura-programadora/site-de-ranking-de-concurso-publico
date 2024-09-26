@@ -113,13 +113,13 @@ nav > a:hover::after {
 
 .video-sobre-site {
     margin: auto;
-    height: 215px;
-    width: 350px;
+    height: 315px;
+    width: 450px;
 }
 
 video {
-    height: 215px;
-    width: 350px;
+    height: 315px;
+    width: 450px;
 
 }
 
@@ -368,6 +368,18 @@ footer > h1, h2, h3, h4, p, a{
 
     .avaliacoes-do-site div {
         width: 90%;
+    }
+
+    .video-sobre-site {
+        margin:auto;
+        height: 170px;
+        width: 305px;
+    }
+    
+    video {
+        height: 170px;
+        width: 305px;
+    
     }
 }
 
