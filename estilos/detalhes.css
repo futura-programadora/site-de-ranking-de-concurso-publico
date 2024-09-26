@@ -284,6 +284,28 @@ button:hover {
     border-radius: 10px;
 }
 
+.todos-os-acessos h2{
+    color: black;
+    text-align: center;
+}
+
+.todos-os-acessos p {
+    color: black;
+    padding: 10px;
+}
+
+.quantidade-de-acessos {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    width: 50%;
+    align-items: center;
+}
+
+
+
+
+
 /* Estilos para o rodapé */
 footer {
     display: flex;
