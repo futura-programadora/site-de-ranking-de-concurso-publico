@@ -99,7 +99,6 @@ body{
     color: #7c7c7c;
     height: 450px;
     padding: 15px;
-   
 }
 
 .usuarios > h2, .concursos-disponiveis > h2 {
@@ -175,6 +174,7 @@ footer {
     width: 50px;
     height: 50px;
     object-fit: cover;
+    margin-bottom: 10px;
 }
 
 .sociais {

@@ -1,0 +1,155 @@
+@charset "UTF-8"; 
+/* Define o conjunto de caracteres como UTF-8 para suportar uma ampla gama de caracteres */
+
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* Remove padding e margin padrão de todos os elementos, remove sublinhados de links, ajusta o box-sizing para incluir padding e border no tamanho total e define a fonte padrão */
+
+body {
+    background-color: #F0E9FE;
+}
+/* Define a cor de fundo da página */
+
+.container > a > span {
+    color: #240046;
+    font-size: 45px;
+    padding: 8px;
+    margin: 10px;
+    border-radius: 50px;
+    border: 1px solid #240046;
+}
+/* Estiliza o ícone de voltar: cor do texto, tamanho da fonte, padding, margin, bordas arredondadas e borda */
+
+.container > a > span:hover {
+    background-color: #470089;
+    color: white;
+    cursor: pointer;
+    border: 1px solid white;
+}
+/* Estilo do ícone de voltar ao passar o mouse: cor de fundo, cor do texto, cursor como pointer e borda */
+
+.resultados-recentes, .resultados-antigos {
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.282);
+    padding: 15px;
+    margin: 15px;
+    height: 450px;
+}
+/* Estilo das seções de resultados recentes e antigos: cor de fundo, bordas arredondadas, borda com transparência, padding, margin e altura */
+
+.resultados-recentes h2, .resultados-antigos h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+/* Centraliza o texto dos títulos das seções e adiciona margem inferior */
+
+.resultados-recentes p, .resultados-antigos p {
+    word-wrap: break-word;
+}
+/* Faz com que as palavras quebrem para a próxima linha se forem muito longas */
+
+.resultados, .resultados-anteriores {
+    padding: 20px;
+    margin: auto;
+    width: 80%;
+    height: 80%;
+    border: 1px solid rgba(128, 128, 128, 0.233);
+    border-radius: 10px;
+    font-weight: bold;
+    overflow-y: auto;
+}
+/* Estilo dos contêineres de resultados: padding, margin, largura, altura, borda com transparência, bordas arredondadas, peso da fonte e barra de rolagem vertical */
+
+.resultado {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+/* Define os resultados como flexbox, permite quebra de linha, espaço entre elementos e adiciona margem inferior */
+
+.resultado > div {
+    flex: 1 1 100%; /* Faz com que as divs internas ocupem 100% do espaço disponível em telas menores */
+    margin-bottom: 5px; /* Espaço entre os elementos internos */
+}
+
+
+footer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    background-color: #240046;
+    height: 200px;
+    color: white;
+}
+
+.footer >  p, a{
+    padding: 10px;
+    color: white;
+}
+
+.logo-do-site-footer {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.sociais {
+    font-size: 25px;
+    padding: 10px;
+}
+
+.rede-social {
+    grid-template-columns: 2fr;
+    border-radius:60px ;
+    border: 1px solid white;
+    padding: 6px;
+}
+
+
+
+
+/* Estilo das divs internas dos resultados: faz com que ocupem 100% do espaço disponível em telas pequenas e adiciona margem inferior */
+
+@media screen and (min-width: 480px) and (max-width: 768px) {
+    .resultados, .resultados-anteriores {
+        padding: 20px;
+        margin: auto;
+        width: 90%;
+        height: 90%;
+        border: 1px solid rgba(128, 128, 128, 0.233);
+        border-radius: 10px;
+        font-weight: bold;
+        overflow-y: auto;
+    }
+}
+/* Ajusta o estilo dos contêineres de resultados para telas de 480px a 768px: padding, margin, largura, altura, borda com transparência, bordas arredondadas, peso da fonte e barra de rolagem vertical */
+
+@media (max-width: 600px) {
+    .resultados, .resultados-anteriores {
+        padding: 20px;
+        margin: auto;
+        width: 90%;
+        height: 90%;
+        border: 1px solid rgba(128, 128, 128, 0.233);
+        border-radius: 10px;
+        font-weight: bold;
+        overflow-y: auto;
+    }
+    /* Ajusta o estilo dos contêineres de resultados para telas menores que 600px: padding, margin, largura, altura, borda com transparência, bordas arredondadas, peso da fonte e barra de rolagem vertical */
+
+    .resultado > div {
+        flex: 1 1 100%; /* Garante que os elementos internos ocupem 100% do espaço disponível em telas pequenas */
+    }
+    /* Garante que os elementos internos dos resultados ocupem 100% do espaço disponível em telas pequenas */
+}
