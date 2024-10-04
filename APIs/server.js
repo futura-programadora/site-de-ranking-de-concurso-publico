@@ -183,3 +183,123 @@ app.get('/concursos', async (req, res) => {
     res.status(200).json(concursos)
 })
 
+//mandar arquivo do que é mais cobrado no concurso
+app.post('/estudos', upload.single('file'), async (req, res) => {
+    const file = req.file;
+
+    if (!file || !concursoId) {
+        return res.status(400).send('Arquivo e id do concurso são obrigatórios.');
+    }
+
+    // Defina o caminho completo para onde você deseja armazenar o arquivo
+    const filePath = path.join(__dirname, 'uploads', file.filename);
+
+    try {
+        const estudo = await prisma.estudar.create({
+            data: {
+                file: filePath, // Salva o caminho do arquivo PDF
+                concursoId: req.body.concursoId,
+            },
+        });
+        res.status(201).json(estudo);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Erro ao salvar os dados.');
+    }
+});
+
+//ver os arquivos do que é mais cobrado no concurso
+app.get('/estudos/concurso/:concursoId', async (req, res) => {
+    const { concursoId } = req.params;
+
+    try {
+        const estudos = await prisma.estudar.findMany({
+            where: {
+                concursoId: concursoId, // Filtra os estudos pelo ID do concurso
+            },
+        });
+
+        if (!estudos || estudos.length === 0) {
+            return res.status(404).send('Nenhum arquivo encontrado para este concurso.');
+        }
+
+        res.json(estudos); // Retorna a lista de estudos (arquivos)
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Erro ao buscar os dados.');
+    }
+});
+
+app.put('/estudos/:id', async (req, res) => {
+    const { concursoId, file } = req.body; // Obter dados do corpo da requisição
+
+    try {
+        // Atualiza os dados do estudo
+        const updatedEstudo = await prisma.estudar.update({
+            where: {
+                id: req.params.id, // ID do estudo a ser atualizado
+            },
+            data: {
+                concursoId: concursoId, // Atualiza o ID do concurso
+                file: file, // Atualiza o nome do arquivo
+            },
+        });
+
+        res.status(200).json(updatedEstudo); // Retorna o estudo atualizado
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Erro ao atualizar os dados.');
+    }
+});
+
+//criar parcerias
+app.post('/parcerias', async (req, res) => {
+    await prisma.parceria.create({
+        data: {
+            name : req.body.name
+        }
+    })
+
+    res.status(201).json(req.body)
+})
+
+// Rota para contar parcerias de forma numerica
+app.get('/parcerias/count', async (req, res) => {
+    try {
+        const count = await prisma.parceria.count();
+        res.json({ count });
+    } catch (error) {
+        console.error('Erro ao contar parcerias:', error);
+        res.status(500).json({ error: 'Erro ao contar parcerias' });
+    }
+});
+
+/*
+const count = await prisma.parceria.count();:
+
+Esta linha utiliza o Prisma para contar o número de entradas na tabela parceria do banco de dados. 
+
+prisma.parceria.count() é uma chamada assíncrona que retorna a contagem de registros na tabela.
+*/
+
+app.post('/especialistas', async (req, res) => {
+    await prisma.especialistas.create({
+        data: {
+            name: req.body.name
+        }
+    })
+
+    res.status(201).json(req.body)
+})
+
+
+// Rota para contar parcerias de forma numerica
+app.get('/especialistas/count', async (req, res) => {
+    try {
+        const count = await prisma.especialistas.count();
+        res.json({ count });
+    } catch (error) {
+        console.error('Erro ao contar especialistas:', error);
+        res.status(500).json({ error: 'Erro ao contar especialistas' });
+    }
+});

@@ -45,4 +45,22 @@ model Concurso {
   id               String   @id @default(auto()) @map("_id") @db.ObjectId
   name             String   //nome do concurso
   candidatos       Candidato[] @relation // Relacionamento com candidatos
+  estudar          Estudar  [] @relation
+}
+
+model Estudar {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  file             String     //documento do que é mais exigido no concurso
+  concursoId       String  //id do concurso
+  concurso         Concurso @relation(fields: [concursoId], references: [id])
+}
+
+model Parceria {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  name             String   //nome da parceria 
+}
+
+model Especialistas {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  name             String   //nome do especialista 
 }
