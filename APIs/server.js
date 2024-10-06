@@ -22,6 +22,34 @@ app.listen(3000);
 
 
 
+//criar admin
+app.post('/admin', async (req, res) => {
+    const admin = await prisma.admin.create({
+        data: {
+            name: req.body.name,
+            password: req.body.password
+        }
+    })
+
+    res.status(201).json({message: 'admin criado com sucesso!'})
+})
+
+//listar admin
+app.get('/admin', async (req, res) => {
+    const admins = await prisma.admin.findMany()
+
+    res.status(201).json({admins})
+})
+
+app.delete('/admin/:id', async (req, res) => {
+    const deletar = await prisma.admin.delete({
+        where: {
+            id: req.body.id
+        }
+    })
+
+    res.status(201).json({message:'admin deletado com sucesso'})
+})
 
 //planos
 app.post('/planos', async (req, res) => {
@@ -447,5 +475,152 @@ app.get('/usuario/:usuarioId/concursos', async (req, res) => {
     } catch (error) {
         // Em caso de erro, retorna um erro 500
         res.status(500).json({ error: 'Erro ao buscar concursos.' });
+    }
+});
+
+//aptos para a proxima etapa
+app.get('/aptos', async (req, res) => {
+    try {
+      // Define os critérios de aprovação
+        const notaMinima = 7.0;
+        const mediaMinima = 7.0;
+
+      // Obtém todos os candidatos
+        const candidatos = await prisma.candidato.findMany();
+
+        const aptos = [];
+
+      // Limpa a tabela de aptos antes de recalcular
+        await prisma.aptosParaproximaEtapa.deleteMany();
+
+        for (const candidato of candidatos) {
+        // Calcula a média das notas
+        const media = (candidato.nota1 + candidato.nota2 + candidato.nota3) / 3;
+
+        // Verifica se o candidato está apto
+        if (
+            candidato.nota1 >= notaMinima &&
+            candidato.nota2 >= notaMinima &&
+            candidato.nota3 >= notaMinima &&
+            media >= mediaMinima
+        ) {
+          // Adiciona o candidato à tabela AptosParaproximaEtapa
+            const apto = await prisma.aptosParaproximaEtapa.create({
+            data: {
+                candidatoId: candidato.id,
+                concursoId: candidato.concursoId,
+                media: media,
+            },
+            });
+            aptos.push(apto);
+        }
+    }
+
+      // Retorna a lista de candidatos aptos
+        res.status(200).json({
+        message: 'Candidatos aptos calculados com sucesso.',
+        aptos: aptos,
+        });
+    } catch (error) {
+        console.error('Erro ao calcular candidatos aptos:', error);
+        res.status(500).json({ error: 'Erro ao calcular candidatos aptos.' });
+    } finally {
+        await prisma.$disconnect();
+    }
+});
+
+
+//adiciona o historico 
+app.post('/historico', async (req, res) => {
+    const { candidatoId, concursoId, numeroInscricao } = req.body;
+
+    try {
+      // Verifica se o candidato existe
+        const candidato = await prisma.candidato.findUnique({
+        where: { id: candidatoId },
+    });
+
+    if (!candidato) {
+        return res.status(404).json({ error: 'Candidato não encontrado.' });
+    }
+
+      // Verifica se o concurso existe
+    const concurso = await prisma.concurso.findUnique({
+        where: { id: concursoId },
+    });
+
+    if (!concurso) {
+        return res.status(404).json({ error: 'Concurso não encontrado.' });
+    }
+
+      // Calcula o resultado a partir das notas do candidato
+    const resultado = calcularResultado(candidato.nota1, candidato.nota2, candidato.nota3);
+
+      // Cria um novo histórico
+    const novoHistorico = await prisma.historico.create({
+        data: {
+          candidato: { connect: { id: candidatoId } }, // Conecta ao candidato
+          concurso: { connect: { id: concursoId } },   // Conecta ao concurso
+          numeroInscricao, // Número de inscrição fornecido pelo cliente
+          resultado, // Resultado calculado a partir das notas
+        },
+    });
+
+        res.status(201).json({
+        message: 'Histórico criado com sucesso.',
+        historico: {
+            id: novoHistorico.id,
+            numeroInscricao: novoHistorico.numeroInscricao,
+            resultado: novoHistorico.resultado,
+            candidatoId: novoHistorico.candidatoId,
+            concursoId: novoHistorico.concursoId,
+        },
+    });
+    } catch (error) {
+        console.error('Erro ao criar histórico:', error);
+        res.status(500).json({ error: 'Erro ao criar histórico.' });
+    } finally {
+        await prisma.$disconnect();
+    }
+});
+
+  // Função para calcular o resultado a partir das notas
+    function calcularResultado(nota1, nota2, nota3) {
+    const media = (nota1 + nota2 + nota3) / 3; // Cálculo da média das notas
+    return media.toFixed(2); // Retorna a média formatada com duas casas decimais
+}
+
+app.get('/historico', async (req, res) => {
+    const { numeroInscricao, concursoId } = req.query;
+
+    try {
+      // Obtém todos os históricos que correspondem ao número de inscrição e concurso específico
+        const resultados = await prisma.historico.findMany({
+        where: {
+          numeroInscricao, // Número de inscrição a partir da consulta
+          concursoId,     // ID do concurso a partir da consulta
+        },
+        include: {
+          candidato: true, // Inclui informações do candidato
+          concurso: true,  // Inclui informações do concurso
+        },
+        orderBy: {
+          postadoEm: 'desc', // Ordena do mais recente para o mais antigo
+        },
+    });
+
+    if (resultados.length === 0) {
+        return res.status(404).json({ message: 'Nenhum histórico encontrado.' });
+    }
+
+    res.status(200).json({
+        message: 'Resultados encontrados com sucesso.',
+        resultados,
+    });
+    } catch (error) {
+        console.error('Erro ao buscar histórico:', error);
+        res.status(500).json({ error: 'Erro ao buscar histórico.' });
+    } finally {
+        await prisma.$disconnect();
     }
 });

@@ -13,6 +13,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Admin {
+  id                String   @id @default(auto()) @map("_id") @db.ObjectId
+  name              String?
+  password          String?
+  postadoEm DateTime @default(now())
+}
+
 model User {
   id                String   @id @default(auto()) @map("_id") @db.ObjectId
   fullName          String   // Nome completo (obrigatório)
@@ -32,25 +39,33 @@ model Plan {
 }
 
 model Candidato {
-  id               String   @id @default(auto()) @map("_id") @db.ObjectId
-  nome             String   // Nome do candidato
-  numeroInscricao  String   // Número de inscrição
-  nota1            Float    // Nota 1
-  nota2            Float    // Nota 2
-  nota3            Float    // Nota 3
-  concursoId       String   // ID do concurso
-  concurso         Concurso  @relation(fields: [concursoId], references: [id])
-  usuarioId        String    // ID do usuário (referência para User)
-  usuario          User      @relation(fields: [usuarioId], references: [id]) // Relação com User
-  createdAt        DateTime @default(now()) // Data de registro
+  id               String      @id @default(auto()) @map("_id") @db.ObjectId
+  nome             String      // Nome do candidato
+  numeroInscricao  String      // Número de inscrição
+  nota1            Float       // Nota 1
+  nota2            Float       // Nota 2
+  nota3            Float       // Nota 3
+  concursoId       String      // ID do concurso
+  concurso         Concurso     @relation(fields: [concursoId], references: [id])
+  usuarioId        String      // ID do usuário (referência para User)
+  usuario          User         @relation(fields: [usuarioId], references: [id]) // Relação com User
+  createdAt        DateTime    @default(now()) // Data de registro
+
+  // Relações opostas
+  historicos       Historico[] @relation // Relação com Historico
+  aptos            AptosParaproximaEtapa[] @relation // Relação com AptosParaproximaEtapa
 }
 
 model Concurso {
-  id               String     @id @default(auto()) @map("_id") @db.ObjectId
-  name             String     // Nome do concurso
+  id               String      @id @default(auto()) @map("_id") @db.ObjectId
+  name             String      // Nome do concurso
   candidatos       Candidato[] @relation // Relacionamento com candidatos
-  estudar          Estudar[]  @relation
+  estudar          Estudar[]   @relation
   participacoes    Participacao[] @relation("ConcursoParticipacao") // Relação com Participacao
+
+  // Relações opostas
+  historicos       Historico[] @relation // Relação com Historico
+  aptos            AptosParaproximaEtapa[] @relation // Relação com AptosParaproximaEtapa
 }
 
 model Estudar {
@@ -100,12 +115,23 @@ model Participacao {
 }
 
 model Historico {
-  id   String   @id @default(auto()) @map("_id") @db.ObjectId
-  name String
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  candidatoId     String   // ID do candidato
+  candidato        Candidato @relation(fields: [candidatoId], references: [id]) // Relação com Candidato
+  concursoId      String   // ID do concurso
+  concurso         Concurso  @relation(fields: [concursoId], references: [id]) // Relação com Concurso
+  numeroInscricao  String   // Número de inscrição
+  resultado        String   // Resultado ou notas do candidato
+  postadoEm        DateTime @default(now()) // Data de registro
 }
 
 model AptosParaproximaEtapa {
-  id   String   @id @default(auto()) @map("_id") @db.ObjectId
-  name String
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  candidatoId   String
+  candidato     Candidato @relation(fields: [candidatoId], references: [id])
+  concursoId    String
+  concurso      Concurso  @relation(fields: [concursoId], references: [id])
+  media         Float
+  createdAt     DateTime @default(now())
 }
 
