@@ -21,46 +21,91 @@ model User {
   password          String   // Senha (obrigatório)
   plan              Plan     @relation(fields: [planId], references: [id])
   planId            String   // Referência ao plano (obrigatório)
+  participacoes     Participacao[] @relation("UsuarioParticipacao") // Relação com Participacao
+  candidatos        Candidato[] @relation // Relação com Candidato
 }
 
 model Plan {
   id    String @id @default(auto()) @map("_id") @db.ObjectId
   name  String
-  users User[]
+  users User[] @relation
 }
 
 model Candidato {
   id               String   @id @default(auto()) @map("_id") @db.ObjectId
-  nome             String  // Nome do candidato
-  numeroInscricao  String  // Número de inscrição
-  nota1            Float   // Nota 1
-  nota2            Float   // Nota 2
-  nota3            Float   // Nota 3
-  concursoId       String  //id do concurso
-  concurso         Concurso @relation(fields: [concursoId], references: [id])
+  nome             String   // Nome do candidato
+  numeroInscricao  String   // Número de inscrição
+  nota1            Float    // Nota 1
+  nota2            Float    // Nota 2
+  nota3            Float    // Nota 3
+  concursoId       String   // ID do concurso
+  concurso         Concurso  @relation(fields: [concursoId], references: [id])
+  usuarioId        String    // ID do usuário (referência para User)
+  usuario          User      @relation(fields: [usuarioId], references: [id]) // Relação com User
   createdAt        DateTime @default(now()) // Data de registro
 }
 
 model Concurso {
-  id               String   @id @default(auto()) @map("_id") @db.ObjectId
-  name             String   //nome do concurso
+  id               String     @id @default(auto()) @map("_id") @db.ObjectId
+  name             String     // Nome do concurso
   candidatos       Candidato[] @relation // Relacionamento com candidatos
-  estudar          Estudar  [] @relation
+  estudar          Estudar[]  @relation
+  participacoes    Participacao[] @relation("ConcursoParticipacao") // Relação com Participacao
 }
 
 model Estudar {
   id               String   @id @default(auto()) @map("_id") @db.ObjectId
-  file             String     //documento do que é mais exigido no concurso
-  concursoId       String  //id do concurso
-  concurso         Concurso @relation(fields: [concursoId], references: [id])
+  file             String   // Documento do que é mais exigido no concurso
+  concursoId       String   // ID do concurso
+  concurso         Concurso  @relation(fields: [concursoId], references: [id])
 }
 
 model Parceria {
   id               String   @id @default(auto()) @map("_id") @db.ObjectId
-  name             String   //nome da parceria 
+  name             String   // Nome da parceria 
 }
 
 model Especialistas {
   id               String   @id @default(auto()) @map("_id") @db.ObjectId
-  name             String   //nome do especialista 
+  name             String   // Nome do especialista 
 }
+
+model Contato {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  titulo           String   // Motivo do contato
+  texto            String   // Detalhes do porquê do contato
+  createdAt        DateTime @default(now()) // Data de registro
+}
+
+model Feedback {
+  id     String   @id @default(auto()) @map("_id") @db.ObjectId
+  emoji  String   // Emoji do feedback
+  texto  String   // Feedback
+  postadoEm DateTime @default(now())
+}
+
+model Acessos {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  ip        String
+  userAgent String
+  acessadoEm DateTime @default(now())
+}
+
+model Participacao {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  usuarioId   String
+  concursoId  String
+  usuario     User     @relation(fields: [usuarioId], references: [id], name: "UsuarioParticipacao") // Relação com User
+  concurso    Concurso  @relation(fields: [concursoId], references: [id], name: "ConcursoParticipacao") // Relação com Concurso
+}
+
+model Historico {
+  id   String   @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+}
+
+model AptosParaproximaEtapa {
+  id   String   @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+}
+

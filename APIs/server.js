@@ -4,6 +4,7 @@ import cors from 'cors'
 import multer from 'multer';
 import PDFParser from 'pdf2json';
 
+
 const prisma = new PrismaClient()
 const upload = multer(); // Configuração básica do multer
 const app = express();
@@ -16,6 +17,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.listen(3000);
 
 
@@ -30,7 +32,7 @@ app.post('/planos', async (req, res) => {
     })
 
     res.status(201).json({ message: 'Plano adicionado com sucesso!'})
-})
+});
 
 
 //criar usuario
@@ -46,14 +48,14 @@ app.post('/usuarios', async (req, res) => {
     })
 
     res.status(201).json(req.body)
-})
+});
 
 //ver usuario
 app.get('/usuarios', async (req, res) => {
     const users = await prisma.user.findMany()//o findmany vai buscar as informações e mostrar para a gente
 
     res.status(200).json(users)
-})
+});
 
 //editar usuario
 app.put('/usuarios/:id', async (req, res) => {
@@ -71,7 +73,7 @@ app.put('/usuarios/:id', async (req, res) => {
 
     res.status(200).json({ message: 'Usuario Editado com sucesso!'})
 
-})
+});
 
 //deletar usuario
 app.delete('/usuarios/:id', async (req, res) => {
@@ -82,7 +84,7 @@ app.delete('/usuarios/:id', async (req, res) => {
     })
 
     res.status(200).json({ message: 'Usuario deletado com sucesso!'})
-})
+});
 
 //tratamemto de dados para candidatos não ativos ainda
 app.post('/upload', upload.single('file'), async (req, res) => {
@@ -156,14 +158,14 @@ app.delete('/upload/:id', async (req, res) => {
     })
 
     res.status(200).json({ message: 'Usuario deletado com sucesso!'})
-})
+});
 
 //ver candidato
 app.get('/upload', async (req, res) => {
     const candidatos = await prisma.candidato.findMany();//o findmany vai buscar as informações e mostrar para a gente
 
     res.status(200).json(candidatos)
-})
+});
 
 //criar concursos
 app.post('/concursos', async (req, res) => {
@@ -174,14 +176,14 @@ app.post('/concursos', async (req, res) => {
     })
 
     res.status(201).json(req.body)
-})
+});
 
 //ver concursos
 app.get('/concursos', async (req, res) => {
     const concursos = await prisma.concurso.findMany();//o findmany vai buscar as informações e mostrar para a gente
 
     res.status(200).json(concursos)
-})
+});
 
 //mandar arquivo do que é mais cobrado no concurso
 app.post('/estudos', upload.single('file'), async (req, res) => {
@@ -209,10 +211,23 @@ app.post('/estudos', upload.single('file'), async (req, res) => {
 });
 
 //ver os arquivos do que é mais cobrado no concurso
-app.get('/estudos/concurso/:concursoId', async (req, res) => {
-    const { concursoId } = req.params;
+app.get('/estudos/concurso/:concursoId/usuario/:usuarioId', async (req, res) => {
+    const { concursoId, usuarioId } = req.params;
 
     try {
+        // Verifica se o usuário é um candidato do concurso
+        const candidato = await prisma.candidato.findFirst({
+            where: {
+                concursoId: concursoId,
+                usuarioId: usuarioId, // Agora você pode usar o usuarioId diretamente
+            },
+        });
+
+        if (!candidato) {
+            return res.status(403).send('Você não participou deste concurso.');
+        }
+
+        // Busca os estudos relacionados ao concurso
         const estudos = await prisma.estudar.findMany({
             where: {
                 concursoId: concursoId, // Filtra os estudos pelo ID do concurso
@@ -229,6 +244,8 @@ app.get('/estudos/concurso/:concursoId', async (req, res) => {
         res.status(500).send('Erro ao buscar os dados.');
     }
 });
+
+
 
 app.put('/estudos/:id', async (req, res) => {
     const { concursoId, file } = req.body; // Obter dados do corpo da requisição
@@ -261,7 +278,7 @@ app.post('/parcerias', async (req, res) => {
     })
 
     res.status(201).json(req.body)
-})
+});
 
 // Rota para contar parcerias de forma numerica
 app.get('/parcerias/count', async (req, res) => {
@@ -282,6 +299,7 @@ Esta linha utiliza o Prisma para contar o número de entradas na tabela parceria
 prisma.parceria.count() é uma chamada assíncrona que retorna a contagem de registros na tabela.
 */
 
+//adiciona um especialista
 app.post('/especialistas', async (req, res) => {
     await prisma.especialistas.create({
         data: {
@@ -290,7 +308,7 @@ app.post('/especialistas', async (req, res) => {
     })
 
     res.status(201).json(req.body)
-})
+});
 
 
 // Rota para contar parcerias de forma numerica
@@ -301,5 +319,133 @@ app.get('/especialistas/count', async (req, res) => {
     } catch (error) {
         console.error('Erro ao contar especialistas:', error);
         res.status(500).json({ error: 'Erro ao contar especialistas' });
+    }
+});
+
+//manda uma notificação de contato
+app.post('/contato', async (req, res) => {
+
+    try {
+        const novoContato = await 
+        prisma.contato.create({
+            data: {
+                titulo: req.body.titulo,
+                texto: req.body.texto,
+            }
+        })
+
+        res.status(201).json({novoContato})
+    } catch (error) {
+        res.status(500).json({error:'ERRO ao tentar entrar em contato'})
+
+    }
+});
+
+//mostra todas as notificações de contato
+app.get('/contato', async (req, res) => {
+    
+    try {
+        const contatos = await prisma.contato.findMany()
+
+        res.status(201).json({contatos})
+    } catch (error) {
+        res.status(500).json({error: 'ERRO ao listar os contatos enviados'})
+    }
+});
+
+//deleta uma notificaçãode contato
+app.delete('/contato/:id', async (req, res) => {
+    await prisma.contato.delete({
+        where: {
+            id: req.params.id
+        }
+    })
+});
+
+//cria um feedback
+app.post('/feedbacks', async (req, res) => {
+    await prisma.feedback.create({
+        data: {
+            emoji: req.body.emoji,
+            texto: req.body.texto
+        }
+    })
+})
+
+//mostra todos os feedbacks
+app.get('/feedbacks', async (req, res) => {
+
+    try {
+        const feedbacks = await prisma.feedback.findMany()
+
+        res.status(201).json(feedbacks);
+    } catch (error) {
+        res.status(500).json({error:'ERRO ao listar feedbacks'})
+    }
+
+})
+
+//faz a contagem de todos os acessos
+app.use(async (req, res, next) => {  // Middleware para todas as requisições
+    const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;  // Obtém o IP do cliente
+    const userAgent = req.headers['user-agent'];  // Obtém o user agent do cliente
+
+    try {
+      await prisma.acesso.create({  // Cria um registro na tabela acesso
+        data: {
+          ip,  // Salva o IP no campo ip
+          userAgent,  // Salva o user agent no campo userAgent
+        },
+
+    });
+    } catch (error) {
+      console.error('Erro ao registrar o acesso:', error);  // Loga o erro no console se ocorrer
+    }
+
+    next();  // Chama o próximo middleware ou rota
+});
+
+//mostra a quantidade de acessos
+app.get('/contagem-acessos', async (req, res) => {  // Define uma rota GET no caminho /contagem-acessos
+    try {
+      const contagem = await prisma.acesso.count();  // Conta o número de registros na tabela acesso
+      res.json({ contagem });  // Envia a contagem como resposta JSON
+    } catch (error) {
+      res.status(500).json({ error: 'Erro ao contar os acessos.' });  // Responde com status 500 e mensagem de erro se ocorrer um problema
+    }
+});
+
+//FILTRANDO O ACESSO DE RESULTADOS DOS CONCURSOS
+// Rota para buscar os concursos em que um usuário específico participou
+app.get('/usuario/:usuarioId/concursos', async (req, res) => {
+    // Extrai o parâmetro usuarioId da URL
+    const { usuarioId } = req.params;
+
+    try {
+        // Busca um usuário específico no banco de dados, incluindo suas participações em concursos
+        const usuarioComConcursos = await prisma.usuario.findUnique({
+            where: { id: parseInt(usuarioId) }, // Converte o usuarioId para um número inteiro
+            include: {
+                participacoes: {
+                    include: {
+                        concurso: true, // Inclui os dados do concurso relacionado a cada participação
+                    },
+                },
+            },
+        });
+
+        // Verifica se o usuário foi encontrado; se não, retorna um erro 404
+        if (!usuarioComConcursos) {
+            return res.status(404).json({ error: 'Usuário não encontrado.' });
+        }
+
+        // Mapeia as participações para obter apenas os concursos
+        const concursos = usuarioComConcursos.participacoes.map(p => p.concurso);
+        
+        // Retorna a lista de concursos como resposta
+        res.json(concursos);
+    } catch (error) {
+        // Em caso de erro, retorna um erro 500
+        res.status(500).json({ error: 'Erro ao buscar concursos.' });
     }
 });
