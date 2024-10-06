@@ -33,7 +33,7 @@ body {
 }
 /* Estilo do ícone de voltar ao passar o mouse: cor de fundo, cor do texto, cursor como pointer e borda */
 
-.resultados-recentes, .resultados-antigos {
+.resultados-recentes, .resultados-antigos, .Cronograma-de-estudos {
     background-color: white;
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.282);
@@ -43,14 +43,15 @@ body {
 }
 /* Estilo das seções de resultados recentes e antigos: cor de fundo, bordas arredondadas, borda com transparência, padding, margin e altura */
 
-.resultados-recentes h2, .resultados-antigos h2 {
+.resultados-recentes h2, .resultados-antigos h2, .Cronograma-de-estudos h2 {
     text-align: center;
     margin-bottom: 20px;
 }
 /* Centraliza o texto dos títulos das seções e adiciona margem inferior */
 
-.resultados-recentes p, .resultados-antigos p {
+.resultados-recentes p, .resultados-antigos p, .Cronograma-de-estudos p, .oque-estudar-mais  {
     word-wrap: break-word;
+    padding: 5px;
 }
 /* Faz com que as palavras quebrem para a próxima linha se forem muito longas */
 
