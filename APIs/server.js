@@ -41,6 +41,7 @@ app.get('/admin', async (req, res) => {
     res.status(201).json({admins})
 })
 
+//deletar um admin
 app.delete('/admin/:id', async (req, res) => {
     const deletar = await prisma.admin.delete({
         where: {
@@ -194,6 +195,7 @@ app.get('/upload', async (req, res) => {
 
     res.status(200).json(candidatos)
 });
+
 
 //criar concursos
 app.post('/concursos', async (req, res) => {
