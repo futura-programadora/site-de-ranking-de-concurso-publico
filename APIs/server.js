@@ -139,17 +139,33 @@ app.post('/upload', upload.single('file'), async (req, res) => {
         for (const line of lines) {
             const fields = line.split(',').map(field => field.trim()); // Divide os dados por vírgulas
             
-            if (fields.length === 5) { // Verifica se tem todos os campos
-                const [numeroInscricao, nome, nota1, nota2, nota3] = fields;
+            // Verifica se o número de campos está entre 3 e 12 (incluindo a notaTotal)
+            if (fields.length >= 3 && fields.length <= 12) {
+                const [numeroInscricao, nome, ...notas] = fields;
+
+                // Converte as notas para float
+                const parsedNotas = notas.map(nota => parseFloat(nota));
+
+                // A última nota é sempre a notaTotal
+                const notaTotal = parsedNotas[parsedNotas.length - 1];
 
                 // Cria um novo registro no banco de dados
                 await prisma.candidato.create({
                     data: {
                         nome,
                         numeroInscricao,
-                        nota1: parseFloat(nota1), // Converte as notas para float
-                        nota2: parseFloat(nota2),
-                        nota3: parseFloat(nota3),
+                        nota1: parsedNotas[0] || null, // Se existir, senão null
+                        nota2: parsedNotas[1] || null, // Se existir, senão null
+                        nota3: parsedNotas[2] || null, // Se existir, senão null
+                        nota4: parsedNotas[3] || null, // Se existir, senão null
+                        nota5: parsedNotas[4] || null, // Se existir, senão null
+                        nota6: parsedNotas[5] || null, // Se existir, senão null
+                        nota7: parsedNotas[6] || null, // Se existir, senão null
+                        nota8: parsedNotas[7] || null, // Se existir, senão null
+                        nota9: parsedNotas[8] || null, // Se existir, senão null
+                        nota10: parsedNotas[9] || null, // Se existir, senão null
+                        nota11: parsedNotas[10] || null, // Se existir, senão null
+                        notaTotal, // Armazena a notaTotal
                         concursoId: req.body.concursoId
                     },
                 });
@@ -164,6 +180,7 @@ app.post('/upload', upload.single('file'), async (req, res) => {
         await prisma.$disconnect(); // Desconectar do Prisma
     }
 });
+
 
 // Função para extrair texto de um PDF usando pdf2json
 async function extractTextFromPdf(dataBuffer) {
@@ -592,6 +609,7 @@ app.post('/historico', async (req, res) => {
     return media.toFixed(2); // Retorna a média formatada com duas casas decimais
 }
 
+//ver o historico
 app.get('/historico', async (req, res) => {
     const { numeroInscricao, concursoId } = req.query;
 
@@ -626,3 +644,122 @@ app.get('/historico', async (req, res) => {
         await prisma.$disconnect();
     }
 });
+
+// Criar um novo ranking
+app.post('/rankings', async (req, res) => {
+    const { candidatoId, notaFinal, concursoId } = req.body;
+    try {
+        const ranking = await prisma.ranking.create({
+            data: {
+                candidatoId,
+                notaFinal,
+                concursoId,
+            },
+        });
+        res.status(201).json(ranking);
+    } catch (error) {
+        res.status(500).json({ error: 'Erro ao criar ranking' });
+    }
+});
+
+
+  // Listar posição do candidato específico no concurso
+app.get('/rankings/:candidatoId/:concursoId', async(req, res) => {
+    const { candidatoId, concursoId } = req.params;
+    try {
+      // Obter todos os rankings do concurso
+        const rankings = await prisma.ranking.findMany({
+        where: { concursoId },
+        orderBy: { notaFinal: 'desc' },
+        include: { candidato: true }, // Inclui os dados do candidato
+    });
+
+      // Encontrar o ranking do candidato específico
+        const candidatoRanking = rankings.find(r => r.candidatoId === candidatoId);
+    if (!candidatoRanking) {
+        return res.status(404).json({ error: 'Candidato não encontrado no concurso' });
+    }
+
+      // Calcular a posição do candidato
+        const posicao = rankings.findIndex(r => r.candidatoId === candidatoId) + 1;
+
+        res.json({
+        posicao,
+        notaFinal: candidatoRanking.notaFinal,
+        candidato: candidatoRanking.candidato.nome,
+    });
+    } catch (error) {
+        res.status(500).json({ error: 'Erro ao buscar rankings' });
+    }
+});
+
+//criar arquivo no edital verticalizado
+app.post('/edital', upload.single('file'), async (req, res) => {
+    const file = req.file;
+
+    if (!file || !concursoId) {
+        return res.status(400).send('Arquivo e id do concurso são obrigatórios.');
+    }
+
+    // Defina o caminho completo para onde você deseja armazenar o arquivo
+    const filePath = path.join(__dirname, 'uploads', file.filename);
+
+    try {
+        const edital = await prisma.editalverticalizado.create({
+            data: {
+                file: filePath, // Salva o caminho do arquivo PDF
+                concursoId: req.body.concursoId,
+            },
+        });
+        res.status(201).json(edital);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Erro ao salvar os dados.');
+    }
+});
+
+//ver os arquivos do edital verticalizado
+app.get('/edital/concurso/:concursoId/usuario/:usuarioId', async (req, res) => {
+    const { concursoId, usuarioId } = req.params;
+
+    try {
+        // Verifica se o usuário é um candidato do concurso
+        const candidato = await prisma.candidato.findFirst({
+            where: {
+                concursoId: concursoId,
+                usuarioId: usuarioId, // Agora você pode usar o usuarioId diretamente
+            },
+        });
+
+        if (!candidato) {
+            return res.status(403).send('Você não participou deste concurso.');
+        }
+
+        // Busca os estudos relacionados ao concurso
+        const edital = await prisma.editalverticalizado.findMany({
+            where: {
+                concursoId: concursoId, // Filtra os estudos pelo ID do concurso
+            },
+        });
+
+        if (!edital || edital.length === 0) {
+            return res.status(404).send('Nenhum arquivo encontrado para este concurso.');
+        }
+
+        res.json(edital); // Retorna a lista de estudos (arquivos)
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Erro ao buscar os dados.');
+    }
+});
+
+//deletar um arquivo
+app.delete('/edital/:id', async (req, res) => {
+    await prisma.editalverticalizado.delete({
+        where: {
+            id: req.params.id
+        }
+    })
+})
+
+
