@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
-
-function App() {
+function Detalhes() {
   const [count, setCount] = useState(0)
 
   return (
@@ -12,4 +11,5 @@ function App() {
 }
 
 
-export default App
+
+export default Detalhes;

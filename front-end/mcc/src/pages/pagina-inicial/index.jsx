@@ -27,7 +27,7 @@ function App() {
           <nav className="links-cabecalho">
             <a href="#">Início</a>
             <a href="./detalhes/">Detalhes</a>
-            <a href="./paginas/concursos.html">Concursos</a>
+            <a href="./concursos.html">Concursos</a>
             <button onClick={irParaLogin} className="login">
               Login
             </button>

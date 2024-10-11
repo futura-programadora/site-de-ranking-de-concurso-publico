@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 
-function App() {
+function Concursos() {
   const [count, setCount] = useState(0)
 
   return (
@@ -12,4 +12,4 @@ function App() {
 }
 
 
-export default App
+export default Concursos
