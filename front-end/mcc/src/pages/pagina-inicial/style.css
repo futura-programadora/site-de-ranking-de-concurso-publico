@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+}
+
+body{
+    display: flex;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/*efeito nos links, vai até o nav > a:hover::after*/
+.links-cabecalho > a {
+    position: relative;
+    padding-bottom: 0.75rem;
+    color: #000000;
+}
+
+nav > a::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #6e00b8;
+    transition: all 0.3s ease;
+}
+
+nav > a:hover::after {
+    width: 70%;
+    
+}
+
+/* Estilos do cabeçalho */
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    flex-wrap: nowrap; /* Evita que os itens se movam para baixo */
+}
+
+.links-cabecalho {
+    display: flex;
+    gap: 20px; /* Espaço entre os links */
+    flex-wrap: nowrap; /* Evita que os links se movam para baixo */
+    font-weight: bold;
+}
+
+.login {
+    background-color:#360267 ;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+.login:hover {
+    background-color:#5500a4 ;
+    cursor: pointer;
+}
+
+/* Estilo para a imagem central e o texto abaixo */
+.imagem-do-site-centro {
+    text-align: center;
+    background-color: #010125;
+}
+
+.por-cima-da-imagem {
+    color: white;
+    font-size: 1.5em;
+    padding: 20px;
+}
+
+.logo-do-site {
+    width: 350px; /* Tamanho da imagem */
+}
+
+/* Grid para concursos populares */
+.consursos-mais-populares {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; /* Espaço entre os itens */
+    justify-items: center;
+    background-color: white;
+    
+}
+
+.concursos > h2 {
+    text-align: center;
+    background-color: white;
+    color: black;
+    
+}
+
+.concurso-popular {
+    width: 100%;
+    max-width: 200px; /* Tamanho máximo das imagens dos concursos */
+    min-height: 100px;
+    padding-left: 10px;
+}
+
+.nosso-forte , h2 {
+    text-align: center;
+    background-color:#4D0095;
+    color: white;
+    
+}
+
+/* Estilos para a seção de planos */
+.planos {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: center;
+}
+
+#planos {
+    padding-top: 40px;
+}
+
+/* Cada plano */
+.card {
+    background-color: #01012551;
+    border: 1px solid #dddddd70;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.551);
+}
+
+.card:hover {
+    border: 1px solid #ddd;
+    box-shadow: 4px 8px 10px  rgba(255, 255, 255, 0.808);
+    transition: all 0.5s;
+}
+
+.content > p, h1, h2, h3, h4{
+    padding: 8px;
+}
+
+.container > h2 {
+    padding: 20px;
+}
+
+/* Botão de assinatura */
+.botao-assinatura {
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.botao-assinatura:hover {
+    background-color: #120032;
+}
+
+/* Estilos para o rodapé */
+footer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    background-color: #240046;
+    height: 200px;
+}
+
+footer > h1, h2, h3, h4, p, a{
+    padding: 10px;
+    color: white;
+}
+
+.sociais {
+    font-size: 25px;
+    padding: 10px;
+}
+.rede-social {
+    grid-template-columns: 2fr;
+    border-radius:60px ;
+    border: 1px solid white;
+    padding: 6px;
+}
+
+.logo-do-site-footer {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.footer {
+    text-align: center;
+    flex-direction: column;
+
+    margin-left: 20px; /* Espaço entre a imagem e o texto do rodapé */
+}
+
+.footer a {
+    color: #000;
+    margin: 0 10px;
+}
+
+/* Estilos para o menu hambúrguer */
+.menu-hamburguer {
+    display: none; /* Ocultar por padrão */
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-hamburguer .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    border-radius: 5px;
+}
+
+
+
+/* Mostrar o menu hambúrguer em telas menores */
+@media (max-width: 500px) {
+    .menu-hamburguer {
+        display: flex;
+
+    }
+
+    .links-cabecalho {
+        display: none; /* Ocultar o menu padrão em telas pequenas */
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        background-color: white;
+        position: absolute;
+        top: 60px; /* Ajuste conforme necessário */
+        right: 0;
+        padding: 10px;
+    }
+
+    .links-cabecalho.show {
+        display: flex; /* Mostrar o menu quando ativado */
+        font-weight: bold;
+        padding-right: 0px;
+        background-size: auto;
+    }
+
+    .login {
+        margin-left: 10px;
+    }
+}
+
+/* Responsividade */
+
+/* Regras de mídia para dispositivos móveis */
+@media screen and (min-width: 480px) and (max-width: 768px) {
+
+    .concursos-grid {
+        grid-template-columns: 1fr; /* Colunas empilhadas em telas menores */
+    }
+
+    .planos {
+        grid-template-columns: repeat(2,1fr); /* Duas colunas em telas menores */
+    }
+
+
+    .nosso-forte {
+        grid-template-columns: 1fr; /* Apenas uma coluna em telas menores */
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .rede-social {
+        grid-template-columns: 2fr;
+    }
+
+}
+
+@media (width < 600px){
+    .planos {
+        grid-template-columns:repeat(1, 1fr); /* Duas colunas em telas menores */
+    }
+
+    .login {
+        width: 80px;
+        font-size: 0.7em;
+    }
+
+    .cabecalho > nav > a {
+        font-size: 14px;
+    }
+
+    .img-cabecalho {
+        width: 70px;
+    }
+
+}
