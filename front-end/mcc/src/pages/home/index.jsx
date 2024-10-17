@@ -17,7 +17,7 @@ function Home() {
 
     const irParaLogin = () => {
         // Substitua 'login.html' pelo caminho do seu arquivo de login
-        window.location.href = '../logar/index.jsx';
+        window.location.href = '/logar';
     };
 
 
@@ -29,8 +29,8 @@ function Home() {
                 </div>
                 <nav className="links-cabecalho">
                     <a href="/">Início</a>
-                    <a href="/detalhes/">Detalhes</a>
-                    <a href="/concursos.html">Concursos</a>
+                    <a href="/detalhes">Detalhes</a>
+                    <a href="/concursos">Concursos</a>
                     <button onClick={irParaLogin} className="login">
                         Login
                     </button>
