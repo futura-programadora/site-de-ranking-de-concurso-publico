@@ -1,86 +1,78 @@
-import { useState } from 'react'
-import React from 'react'
+import { useState } from 'react';
+import React from 'react';
 
-import Logo from '../../assets/lupa.png'
-import Marca from '../../assets/logoDoSiteAprimorada2.png'
-import Imgfooter from '../../assets/logoDoSIte.png'
-import './pagina-inicial.css'
-
+import Logo from '../../assets/lupa.png';
+import Marca from '../../assets/logoDoSiteAprimorada2.png';
+import Imgfooter from '../../assets/logoDoSIte.png';
+import styles from './pagina-inicial.module.css';
 
 function Home() {
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(0);
 
     const toggleMenu = () => {
-        const menu = document.querySelector('.links-cabecalho');
-        menu.classList.toggle('show');
+        const menu = document.querySelector(`.${styles.linksCabecalho}`);
+        menu.classList.toggle(styles.show);
     };
 
     const irParaLogin = () => {
-        // Substitua 'login.html' pelo caminho do seu arquivo de login
         window.location.href = '/logar';
     };
 
-
     return (
-        <div className="container">
-            <header className="cabecalho">
+        <section className={styles.container}>
+            <header className={styles.cabecalho}>
                 <div>
-                    <img className="img-cabecalho" src={Logo} alt="logo do cabeçalho" />
+                    <img className={styles.imgCabecalho} src={Logo} alt="logo do cabeçalho" />
                 </div>
-                <nav className="links-cabecalho">
+                <nav className={styles.linksCabecalho}>
                     <a href="/">Início</a>
                     <a href="/detalhes">Detalhes</a>
                     <a href="/concursos">Concursos</a>
-                    <button onClick={irParaLogin} className="login">
+                    <button onClick={irParaLogin} className={styles.login}>
                         Login
                     </button>
                 </nav>
                 {/* MENU HAMBURGUER */}
-                <div className="menu-hamburguer" onClick={toggleMenu}>
-                    <span className="bar"></span>
-                    <span className="bar"></span>
-                    <span className="bar"></span>
+                <div className={styles.menuHamburguer} onClick={toggleMenu}>
+                    <span className={styles.bar}></span>
+                    <span className={styles.bar}></span>
+                    <span className={styles.bar}></span>
                 </div>
             </header>
-            <section className="imagem-do-site-centro">
-                <img
-                    className="logo-do-site"
-                    src={Marca}
-                    alt=""
-                />
-                <h1 className="por-cima-da-imagem">Sua classificação está aqui!</h1>
+            <section className={styles.imagemDoSiteCentro}>
+                <img className={styles.logoDoSite} src={Marca} alt="" />
+                <h1 className={styles.porCimaDaImagem}>Sua classificação está aqui!</h1>
             </section>
-            <main className="concursos">
+            <main className={styles.concursos}>
                 <h2>Conheça mais</h2>
 
-                <section className="concursos-mais-populares">
+                <section className={styles.produtosMaisPopulares}>
                     {/* concursos publicos mais acessados */}
-
                 </section>
             </main>
             <h2>Números que são nosso forte</h2>
-            <section className="informacoes-sobre-a-empresa">
-                <section className="nosso-forte">
-                    <section className="anos-de-mercado">
+            <section className={styles.informacoesSobreAEmpresa}>
+                <section className={styles.nossoForte}>
+                    <section className={styles.anosDeMercado}>
                         <h2 id="numero-anos-de-mercado">0</h2>
                         <p>Anos de mercado</p>
                     </section>
-                    <section className="especialistas">
+                    <section className={styles.especialistas}>
                         <h2 id="numero-especialistas">0</h2>
                         <p>Especialistas</p>
                     </section>
-                    <section className="clientes-anuais">
+                    <section className={styles.clientesAnuais}>
                         <h2 id="numero-clientes-anuais">0</h2>
                         <p>Clientes anuais</p>
                     </section>
-                    <section className="parcerias">
+                    <section className={styles.parcerias}>
                         <h2 id="numero-parcerias">0</h2>
                         <p>Parcerias</p>
                     </section>
                     <h2 id="planos">Nossos planos</h2>
-                    <section className="planos">
-                        <div className="card">
-                            <div className="content">
+                    <section className={styles.planos}>
+                        <div className={styles.card}>
+                            <div className={styles.content}>
                                 <h4>Plano Mensal</h4>
                                 <h3>R$ 4,99</h3>
                                 <p>
@@ -89,10 +81,10 @@ function Home() {
                                     nos concursos públicos.
                                 </p>
                             </div>
-                            <button className="botao-assinatura">Assine agora!</button>
+                            <button className={styles.botaoAssinatura}>Assine agora!</button>
                         </div>
-                        <div className="card">
-                            <div className="content">
+                        <div className={styles.card}>
+                            <div className={styles.content}>
                                 <h4>Plano Semestral</h4>
                                 <h3>R$ 24,99</h3>
                                 <p>
@@ -101,10 +93,10 @@ function Home() {
                                     nos concursos públicos.
                                 </p>
                             </div>
-                            <button className="botao-assinatura">Assine agora!</button>
+                            <button className={styles.botaoAssinatura}>Assine agora!</button>
                         </div>
-                        <div className="card">
-                            <div className="content">
+                        <div className={styles.card}>
+                            <div className={styles.content}>
                                 <h4>Plano Anual</h4>
                                 <h3>R$ 44,99</h3>
                                 <p>
@@ -113,28 +105,28 @@ function Home() {
                                     nos concursos públicos.
                                 </p>
                             </div>
-                            <button className="botao-assinatura">Assine agora!</button>
+                            <button className={styles.botaoAssinatura}>Assine agora!</button>
                         </div>
                     </section>
                 </section>
             </section>
             <footer>
-                <img className="logo-do-site-footer" src={Imgfooter} alt="" />
+                <img className={styles.logoDoSiteFooter} src={Imgfooter} alt="" />
                 <p>Nos siga nas redes sociais. Seu feedback é importante</p>
-                <section className="sociais">
+                <section className={styles.sociais}>
                     <a
-                        className="rede"
+                        className={styles.rede}
                         href="https://www.instagram.com/minhaclassificacaoconcursos?igsh=eWU5Y3Y0emE3eGgx"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
                         <i className="ri-instagram-line"></i>
                     </a>
-                    <a className="rede" href="" target="_blank" rel="noopener noreferrer">
+                    <a className={styles.rede} href="" target="_blank" rel="noopener noreferrer">
                         <i className="ri-facebook-line"></i>
                     </a>
                     <a
-                        className="rede"
+                        className={styles.rede}
                         href="https://www.tiktok.com/@vencendoosconcursos?_t=8q4czZHV781&_r=1"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -155,9 +147,8 @@ function Home() {
                     </strong>
                 </p>
             </footer>
-        </div>
+        </section>
     );
 }
 
-
-export default Home
+export default Home;

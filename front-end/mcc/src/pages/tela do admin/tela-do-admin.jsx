@@ -6,7 +6,7 @@ import Documento from '../../assets/documento.png'
 import Notificacao from '../../assets/notificacao.png'
 import ImgAdmin from '../../assets/usuario-admin.png'
 import Imgfooter from '../../assets/logoDoSIte.png'
-import './tela-do-admin.css'
+import './tela-do-admin.module.css'
 
 function TelaDoAdmin() {
     const [count, setCount] = useState(0)

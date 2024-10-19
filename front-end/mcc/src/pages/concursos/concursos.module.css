@@ -15,7 +15,7 @@ body{
 
 
 /*efeito nos links, vai até o nav > a:hover::after*/
-.links-cabecalho > a {
+.linksCabecalho > a {
     position: relative;
     padding: 10px 10px 12px;
     color: #000000;
@@ -48,14 +48,14 @@ nav > a:hover::after {
     box-sizing: border-box; /* Garante que padding e bordas não aumentem a largura */
 }
 
-.links-cabecalho {
+.linksCabecalho {
     display: flex;
     gap: 20px; /* Espaço entre os links */
     flex-wrap: nowrap; /* Evita que os links se movam para baixo */
     font-weight: bold;
 }
 
-.menu-hamburguer {
+.menuHamburguer {
     cursor: pointer; /* Indica que é clicável */
 }
 
@@ -77,32 +77,34 @@ nav > a:hover::after {
 
 
 /* Estilos para o menu hambúrguer */
-.menu-hamburguer {
+.menuHamburguer {
     display: none; /* Ocultar por padrão */
     cursor: pointer;
     flex-direction: column;
     gap: 5px;
 }
 
-.menu-hamburguer .bar {
+.menuHamburguer .bar {
     width: 25px;
     height: 3px;
     background-color: #000;
     border-radius: 5px;
 }
 
-.concursos-disponiveis {
+.concursosDisponiveis {
     background-color: white;
     margin: 15px;
     border-radius: 10px;
 }
 
-.concursos-disponiveis h2 {
+.concursosDisponiveis h2 {
     color: #000;
     text-align: center;
+    background-color: white;
+    border-radius: 10px;
 }
 
-.todos-os-concursos {
+.todosOsConcursos {
     border: 1px solid rgba(0, 0, 0, 0.362);
     border-radius: 10px;
     height: 600px;
@@ -111,7 +113,7 @@ nav > a:hover::after {
     margin: 10px;
 }
 
-.todos-os-concursos p {
+.todosOsConcursosp {
     color: #000;
 }
 
@@ -147,7 +149,7 @@ footer > h1, h2, h3, h4, p, a{
     padding: 6px;
 }
 
-.logo-do-site-footer {
+.logoDoSiteFooter {
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -171,12 +173,12 @@ footer > h1, h2, h3, h4, p, a{
 
 /* Mostrar o menu hambúrguer em telas menores */
 @media (max-width: 500px) {
-    .menu-hamburguer {
+    .menuHamburguer {
         display: flex;
 
     }
 
-    .links-cabecalho {
+    .linksCabecalho {
         display: none; /* Ocultar o menu padrão em telas pequenas */
         flex-direction: column;
         gap: 10px;
@@ -188,7 +190,7 @@ footer > h1, h2, h3, h4, p, a{
         padding: 10px;
     }
 
-    .links-cabecalho.show {
+    .linksCabecalho.show {
         display: flex; /* Mostrar o menu quando ativado */
         font-weight: bold;
         padding-right: 0px;
@@ -212,10 +214,6 @@ footer > h1, h2, h3, h4, p, a{
         text-align: center;
     }
 
-    .rede-social {
-        grid-template-columns: 2fr;
-    }
-
 }
 
 @media (width < 600px){
@@ -229,7 +227,7 @@ footer > h1, h2, h3, h4, p, a{
         font-size: 14px;
     }
 
-    .img-cabecalho {
+    .imgCabecalho {
         width: 70px;
     }
 

@@ -3,7 +3,7 @@ import React from 'react'
 
 import Logo from '../../assets/lupa.png'
 import Sair from '../../assets/sair.png'
-import './logar-admin.css'
+import './logar-admin.module.css'
 
 function LogarAdmin() {
     const [count, setCount] = useState(0)

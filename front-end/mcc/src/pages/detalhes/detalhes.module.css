@@ -8,24 +8,12 @@
 }
 
 body{
-    background-color: white;
-}
-
-.container {
-    background-color: #F0E9FE;
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: 500;
-    font-size: 18px;
-}
-
-.normal {
-    background-color: white;
-    text-align: left;
-    padding-bottom: 25px;
+    background-color: #F0E9FE;
 }
 
 /*efeito nos links, vai até o nav > a:hover::after*/
-.links-cabecalho > a {
+.linksCabecalho > a {
     position: relative;
     padding: 10px 10px 12px;
     color: #000000;
@@ -58,7 +46,7 @@ nav > a:hover::after {
     box-sizing: border-box; /* Garante que padding e bordas não aumentem a largura */
 }
 
-.links-cabecalho {
+.linksCabecalho {
     display: flex;
     gap: 20px; /* Espaço entre os links */
     flex-wrap: nowrap; /* Evita que os links se movam para baixo */
@@ -83,47 +71,48 @@ nav > a:hover::after {
 
 
 /* Estilos para o menu hambúrguer */
-.menu-hamburguer {
+.menuHamburguer {
     display: none; /* Ocultar por padrão */
     cursor: pointer;
     flex-direction: column;
     gap: 5px;
 }
 
-.menu-hamburguer .bar {
+.menuHamburguer .bar {
     width: 25px;
     height: 3px;
     background-color: #000;
     border-radius: 5px;
 }
 
-.menu-hamburguer {
+.menuHamburguer {
     cursor: pointer; /* Indica que é clicável */
 }
 
 /*descrição completa do site*/
-.descricao-completa {
+.descricaoCompleta {
     background-color: white;
-    margin: 20px;
+    margin: 15px;
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.222);
-    padding: 10px;
 }
 
-.descricao-completa p {
+.descricaoCompleta p {
     padding: 15px;
     text-align: justify;
     color: black;
 }
 
-.descricao-completa h2 {
+.descricaoCompleta h2 {
     text-align: center;
     padding-bottom: 15px;
     padding-top: 15px;
     color: black;
+    background-color: white;
+    border-radius: 10px;
 }
 
-.video-sobre-site {
+.videoSobreSite {
     margin: auto;
     height: 315px;
     width: 450px;
@@ -135,8 +124,8 @@ video {
 
 }
 
-.especificacoes-tecnicas {
-    padding: 30px;
+.especificacoesTecnicas {
+    padding: 25px;
     text-align: justify;
     margin: 20px;
     background-color: white;
@@ -144,55 +133,57 @@ video {
     border: 1px solid rgba(0, 0, 0, 0.222);
 }
 
-.especificacoes-tecnicas li {
+.especificacoesTecnicas li {
     padding-left: 10px;
     padding-bottom: 8px;
 }
 
-.especificacoes-tecnicas h2, .especificacoes-tecnicas h3 {
+.especificacoesTecnicas h2, .especificacoesTecnicas h3 {
     color: #3c0074;
     padding-top: 20px;
+    background-color: white;
 }
 
-.nossos-planos {
+.nossosPlanos {
     background-color: #5500a4;
     text-shadow: 4px 4px 4px #7100dc;
     width: 70%;
     margin: auto;
 }
 
-.nossos-planos p {
+.nossosPlanos p {
     background-color: #5500a4;
     padding: 15px;
     text-align: justify;
 }
 
-.nossos-planos h2 {
+.nossosPlanos h2 {
     text-align: center;
     border-bottom-left-radius: 20px;
     background-color: #240046;
     border: 1px solid white;
 }
 
-.formulario-de-contato {
+.formularioDeContato {
     margin: auto;
     margin-top: 20px;
     background-color: white;
-    padding: 20px;
+    padding: 15px;
 }
 
-.formulario-de-contato h2, .formulario-de-contato p {
+.formularioDeContato h2, .formularioDeContato p {
     color: black;
     text-align: center;
-    padding-bottom: 25px;
+    background-color:white;
 }
 
-.entre-em-contato {
+.entreEmContato {
     background-color: #c180ff7d;
-    width: 70%;
+    width: 65%;
     margin: auto;
     padding: 15px;
     margin-bottom: 20px;
+    margin-top: 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -216,7 +207,7 @@ textarea::placeholder {
     vertical-align: top; /* Alinha o placeholder ao topo */
 }
 
-.entre-em-contato button {
+.entreEmContato > button {
     background-color: #240046;
     color: white;
     border: none;
@@ -225,11 +216,11 @@ textarea::placeholder {
     border-radius: 10px;
 }
 
-.entre-em-contato button:hover {
+.entreEmContato button:hover {
     background-color: #52009e;
 }
 
-.avaliacoes-do-site {
+.avaliacoesDoSite {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -240,10 +231,9 @@ textarea::placeholder {
     margin-top: 20px;
 }
 
-.avaliacoes-do-site h2 {
+.avaliacoesDoSite h2 {
     margin-bottom: 20px;
     color: black;
-    text-align: left;
     background-color: white;
 }
 
@@ -287,40 +277,36 @@ button {
     border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
+    margin-right: 5px;
 }
 
 button:hover {
     background-color: #180050;
 }
 
-#emoji-select {
-    padding: 8px;
+.emoji-select {
+    padding: 10px;
     border: 1px solid rgba(0, 0, 0, 0.186);
     border-radius: 10px;
 }
 
-.todos-os-acessos h2{
+.todosOsAcessos h2{
     color: black;
     text-align: center;
-    background-color: white;
-    text-align: center;
-    margin-top: 20px;
+    background-color: #F0E9FE;
 }
 
-.todos-os-acessos p {
+.todosOsAcessos p {
     color: black;
     padding: 10px;
-    background-color: white;
 }
 
-.quantidade-de-acessos {
+.quantidadeDeAcessos {
     display: flex;
     justify-content: space-between;
     margin: auto;
     width: 50%;
     align-items: center;
-    padding: 20px;
-    
 }
 
 
@@ -348,14 +334,7 @@ footer > h1, h2, h3, h4, p, a{
     padding: 10px;
 }
 
-.rede-social {
-    grid-template-columns: 2fr;
-    border-radius:60px ;
-    border: 1px solid white;
-    padding: 6px;
-}
-
-.logo-do-site-footer {
+.logoDoSiteFooter {
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -377,12 +356,12 @@ footer > h1, h2, h3, h4, p, a{
 
 /* Mostrar o menu hambúrguer em telas menores */
 @media (max-width: 500px) {
-    .menu-hamburguer {
+    .menuHamburguer {
         display: flex;
 
     }
 
-    .links-cabecalho {
+    .linksCabecalho {
         display: none; /* Ocultar o menu padrão em telas pequenas */
         flex-direction: column;
         gap: 10px;
@@ -394,7 +373,7 @@ footer > h1, h2, h3, h4, p, a{
         padding: 10px;
     }
 
-    .links-cabecalho.show {
+    .linksCabecalho.show {
         display: flex; /* Mostrar o menu quando ativado */
         font-weight: bold;
         padding-right: 0px;
@@ -405,16 +384,16 @@ footer > h1, h2, h3, h4, p, a{
         margin-left: 10px;
     }
 
-    .nossos-planos {
+    .nossosPlanos {
         width: 100%;
         margin: auto;
     }
 
-    .avaliacoes-do-site div {
+    .avaliacoesDoSite {
         width: 90%;
     }
 
-    .video-sobre-site {
+    .videoSobreSite {
         margin:auto;
         height: 170px;
         width: 305px;
@@ -456,7 +435,7 @@ footer > h1, h2, h3, h4, p, a{
         font-size: 14px;
     }
 
-    .img-cabecalho {
+    .imgCabecalho {
         width: 70px;
     }
 

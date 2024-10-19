@@ -1,24 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 * {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: white;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
 }
 
 .container {
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
     font-size: 18px;
 }
 
-body{
-    background-color: white;
-    font-family: Arial, Helvetica, sans-serif;
-}
-/*efeito nos links, vai até o nav > a:hover::after*/
-.links-cabecalho > a {
+/* Efeito nos links */
+.linksCabecalho > a {
     position: relative;
     padding-bottom: 0.75rem;
     color: #000000;
@@ -37,7 +37,6 @@ nav > a::after {
 
 nav > a:hover::after {
     width: 70%;
-    
 }
 
 /* Estilos do cabeçalho */
@@ -47,9 +46,11 @@ nav > a:hover::after {
     align-items: center;
     padding: 10px;
     flex-wrap: nowrap; /* Evita que os itens se movam para baixo */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra do cabeçalho */
+    background-color: white;
 }
 
-.links-cabecalho {
+.linksCabecalho {
     display: flex;
     gap: 20px; /* Espaço entre os links */
     flex-wrap: nowrap; /* Evita que os links se movam para baixo */
@@ -57,51 +58,48 @@ nav > a:hover::after {
 }
 
 .login {
-    background-color:#360267 ;
+    background-color: #360267;
     width: 100px;
     height: 40px;
     border-radius: 10px;
     color: white;
     font-weight: bold;
-    border: none;
 }
 
 .login:hover {
-    background-color:#5500a4 ;
+    background-color: #5500a4;
     cursor: pointer;
 }
 
 /* Estilo para a imagem central e o texto abaixo */
-.imagem-do-site-centro {
+.imagemDoSiteCentro {
     text-align: center;
     background-color: #010125;
 }
 
-.por-cima-da-imagem {
+.porCimaDaImagem {
     color: white;
     font-size: 1.5em;
     padding: 20px;
 }
 
-.logo-do-site {
+.logoDoSite {
     width: 350px; /* Tamanho da imagem */
 }
 
 /* Grid para concursos populares */
-.consursos-mais-populares {
+.produtosMaisPopulares {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px; /* Espaço entre os itens */
     justify-items: center;
     background-color: white;
-    
 }
 
 .concursos > h2 {
     text-align: center;
     background-color: white;
     color: black;
-    
 }
 
 .concurso-popular {
@@ -111,11 +109,10 @@ nav > a:hover::after {
     padding-left: 10px;
 }
 
-.nosso-forte , h2 {
+.nossoForte, h2 {
     text-align: center;
-    background-color:#4D0095;
+    background-color: #4D0095;
     color: white;
-    
 }
 
 /* Estilos para a seção de planos */
@@ -142,11 +139,11 @@ nav > a:hover::after {
 
 .card:hover {
     border: 1px solid #ddd;
-    box-shadow: 4px 8px 10px  rgba(255, 255, 255, 0.808);
+    box-shadow: 4px 8px 10px rgba(255, 255, 255, 0.808);
     transition: all 0.5s;
 }
 
-.content > p, h1, h2, h3, h4{
+.content > p, h1, h2, h3, h4 {
     padding: 8px;
 }
 
@@ -155,7 +152,7 @@ nav > a:hover::after {
 }
 
 /* Botão de assinatura */
-.botao-assinatura {
+.botaoAssinatura {
     background-color: #000000;
     color: #fff;
     border: none;
@@ -165,7 +162,7 @@ nav > a:hover::after {
     font-weight: bold;
 }
 
-.botao-assinatura:hover {
+.botaoAssinatura:hover {
     background-color: #120032;
 }
 
@@ -180,7 +177,7 @@ footer {
     height: 200px;
 }
 
-footer > h1, h2, h3, h4, p, a{
+footer > h1, h2, h3, h4, p, a {
     padding: 10px;
     color: white;
 }
@@ -189,14 +186,16 @@ footer > h1, h2, h3, h4, p, a{
     font-size: 25px;
     padding: 10px;
 }
+
 .rede-social {
+    display: grid;
     grid-template-columns: 2fr;
-    border-radius:60px ;
+    border-radius: 60px;
     border: 1px solid white;
     padding: 6px;
 }
 
-.logo-do-site-footer {
+.logoDoSiteFooter {
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -206,7 +205,6 @@ footer > h1, h2, h3, h4, p, a{
 .footer {
     text-align: center;
     flex-direction: column;
-
     margin-left: 20px; /* Espaço entre a imagem e o texto do rodapé */
 }
 
@@ -216,30 +214,28 @@ footer > h1, h2, h3, h4, p, a{
 }
 
 /* Estilos para o menu hambúrguer */
-.menu-hamburguer {
+.menuHamburguer {
     display: none; /* Ocultar por padrão */
     cursor: pointer;
     flex-direction: column;
     gap: 5px;
 }
 
-.menu-hamburguer .bar {
+.menuHamburguer .bar {
     width: 25px;
     height: 3px;
     background-color: #000;
     border-radius: 5px;
 }
 
-
-
 /* Mostrar o menu hambúrguer em telas menores */
 @media (max-width: 500px) {
-    .menu-hamburguer {
+    .menuHamburguer {
         display: flex;
 
     }
 
-    .links-cabecalho {
+    .linksCabecalho {
         display: none; /* Ocultar o menu padrão em telas pequenas */
         flex-direction: column;
         gap: 10px;
@@ -251,7 +247,7 @@ footer > h1, h2, h3, h4, p, a{
         padding: 10px;
     }
 
-    .links-cabecalho.show {
+    .linksCabecalho.show {
         display: flex; /* Mostrar o menu quando ativado */
         font-weight: bold;
         padding-right: 0px;
@@ -276,8 +272,7 @@ footer > h1, h2, h3, h4, p, a{
         grid-template-columns: repeat(2,1fr); /* Duas colunas em telas menores */
     }
 
-
-    .nosso-forte {
+    .nossoForte {
         grid-template-columns: 1fr; /* Apenas uma coluna em telas menores */
     }
 
@@ -306,7 +301,7 @@ footer > h1, h2, h3, h4, p, a{
         font-size: 14px;
     }
 
-    .img-cabecalho {
+    .imgCabecalho {
         width: 70px;
     }
 

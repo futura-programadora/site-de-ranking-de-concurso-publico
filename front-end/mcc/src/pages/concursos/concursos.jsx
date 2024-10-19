@@ -1,70 +1,68 @@
-import { useState } from 'react'
-import React from 'react'
+import { useState } from 'react';
+import React from 'react';
 
-import Logo from '../../assets/lupa.png'
-import Marca from '../../assets/logoDoSiteAprimorada2.png'
-import Imgfooter from '../../assets/logoDoSIte.png'
-import './concursos.css'
+import Logo from '../../assets/lupa.png';
+import Imgfooter from '../../assets/logoDoSIte.png';
+import styles from './concursos.module.css';
 
 function Concursos() {
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(0);
 
     const toggleMenu = () => {
-        const menu = document.querySelector('.links-cabecalho');
-        menu.classList.toggle('show');
+        const menu = document.querySelector(`.${styles.linksCabecalho}`);
+        menu.classList.toggle(styles.show);
     };
 
     const irParaLogin = () => {
-        // Substitua 'login.html' pelo caminho do seu arquivo de login
         window.location.href = '/logar';
     };
 
     return (
-        <section className="container">
-            <header className="cabecalho">
+        <section className={styles.container}>
+            <header className={styles.cabecalho}>
                 <div>
-                    <img className="img-cabecalho" src={Logo} alt="logo do cabeçalho" />
+                    <img className={styles.imgCabecalho} src={Logo} alt="logo do cabeçalho" />
                 </div>
-                <nav className="links-cabecalho">
+                <nav className={styles.linksCabecalho}>
                     <a href="/">Início</a>
                     <a href="/detalhes">Detalhes</a>
                     <a href="/concursos">Concursos</a>
-                    <button onClick={irParaLogin} className="login">
+                    <button onClick={irParaLogin} className={styles.login}>
                         Login
                     </button>
                 </nav>
                 {/* MENU HAMBURGUER */}
-                <div className="menu-hamburguer" onClick={toggleMenu}>
-                    <span className="bar"></span>
-                    <span className="bar"></span>
-                    <span className="bar"></span>
+                <div className={styles.menuHamburguer} onClick={toggleMenu}>
+                    <span className={styles.bar}></span>
+                    <span className={styles.bar}></span>
+                    <span className={styles.bar}></span>
                 </div>
             </header>
-            <main className="conteudo">
-            <section class="concursos-disponiveis">
-                <h2 className='normal'>Todos os concursos disponíveis</h2>
-                <div className="todos-os-concursos">
-                    {/* pegar o nome de todos os concursos atraves do banco de dados, e adaptar este codigo na parte do script e na parte do "html" */}
-                </div>
-            </section>
-        </main>
+            <main className={styles.conteudo}>
+                <section className={styles.concursosDisponiveis}>
+                    <h2 className={styles.normal}>Todos os concursos disponíveis</h2>
+                    <div className={styles.todosOsConcursos}>
+                        {/* pegar o nome de todos os concursos através do banco de dados, e adaptar este código na parte do script e na parte do "html" */}
+                    </div>
+                </section>
+            </main>
             <footer>
-                <img className="logo-do-site-footer" src={Imgfooter} alt="" />
+                <img className={styles.logoDoSiteFooter} src={Imgfooter} alt="" />
                 <p>Nos siga nas redes sociais. Seu feedback é importante</p>
-                <section className="sociais">
+                <section className={styles.sociais}>
                     <a
-                        className="rede"
+                        className={styles.rede}
                         href="https://www.instagram.com/minhaclassificacaoconcursos?igsh=eWU5Y3Y0emE3eGgx"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
                         <i className="ri-instagram-line"></i>
                     </a>
-                    <a className="rede" href="" target="_blank" rel="noopener noreferrer">
+                    <a className={styles.rede} href="" target="_blank" rel="noopener noreferrer">
                         <i className="ri-facebook-line"></i>
                     </a>
                     <a
-                        className="rede"
+                        className={styles.rede}
                         href="https://www.tiktok.com/@vencendoosconcursos?_t=8q4czZHV781&_r=1"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -86,7 +84,7 @@ function Concursos() {
                 </p>
             </footer>
         </section>
-    )
+    );
 }
 
-export default Concursos
+export default Concursos;

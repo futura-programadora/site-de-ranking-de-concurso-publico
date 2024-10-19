@@ -2,6 +2,7 @@ import { useState } from 'react'
 import React from 'react'
 
 import Imgfooter from '../../assets/logoDoSIte.png'
+import './resultados-do-usuario.module.css'
 
 function ResultadosDoUsuario() {
     const [count, setCount] = useState(0)
