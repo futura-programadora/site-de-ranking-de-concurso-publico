@@ -14,12 +14,54 @@ import Estatistica from '../../assets/estatistica.png'
 import Styles from './tela-do-usuario.module.css'
 
 function TelaDoUsuario() {
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(0);
+
+    function menuUsuario() {
+        const menu = document.querySelector(`.${styles.menu_usuario}`);
+        if (menu.style.display === 'block') {
+            menu.style.display = 'none';
+        } else {
+            menu.style.display = 'block';
+        }
+    }
+
+    async function fetchFiles() {
+        try {
+            const response = await fetch('URL_DA_API'); // Substitua pela URL da API
+            const data = await response.json();
+            
+            const fileList = document.getElementById('file-list');
+            const noFilesMessage = document.getElementById('no-files-message');
+    
+            if (data.length > 0) {
+                data.forEach(file => {
+                    const listItem = document.createElement('li');
+                    const link = document.createElement('a');
+                    link.href = `uploads/${file}`; // Caminho para o arquivo
+                    link.download = file; // Indica que é para download
+                    link.textContent = file; // Nome do arquivo
+                    listItem.appendChild(link);
+                    fileList.appendChild(listItem);
+                });
+            } else {
+                noFilesMessage.style.display = 'block'; // Mostra a mensagem se não houver arquivos
+            }
+        } catch (error) {
+            console.error('Erro ao buscar arquivos:', error);
+            const noFilesMessage = document.getElementById('no-files-message');
+            noFilesMessage.textContent = 'Erro ao carregar arquivos.';
+            noFilesMessage.style.display = 'block';
+        }
+    }
+
+    useEffect(() => {
+        fetchFiles();
+    }, []);
 
     return (
         <div className={Styles.container}>
             <header className={Styles.cabecalho}>
-                <img className={Styles.img_usuario} src={Usuario} alt="" />
+                <img className={Styles.img_usuario} src={Usuario} alt="" onClick={menuUsuario} />
                 <div className={Styles.nome_do_concurso} id="concurso"></div>
                 <p className={Styles.concurso}>nome do concurso</p>
 
@@ -118,7 +160,7 @@ function TelaDoUsuario() {
                 <p>&copy; Feito por <strong><a href="https://www.facebook.com/share/ZVKE6BK1qLvUh4vJ/?mibextid=qi2Omg" target="_blank" rel="noopener noreferrer">@VionTechOfc</a></strong></p>
             </footer>
         </div>
-    )
+    );
 }
 
-export default TelaDoUsuario
+export default TelaDoUsuario;

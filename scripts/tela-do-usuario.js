@@ -9,7 +9,7 @@ function menuUsuario() {
 
 async function fetchFiles() {
     try {
-        const response = await fetch('URL_DA_SUA_API'); // Substitua pela URL da sua API
+        const response = await fetch('URL_DA_API'); // Substitua pela URL da API
         const data = await response.json();
         
         const fileList = document.getElementById('file-list');
@@ -38,3 +38,4 @@ async function fetchFiles() {
 
 // Chama a função ao carregar a página
 fetchFiles();
+
