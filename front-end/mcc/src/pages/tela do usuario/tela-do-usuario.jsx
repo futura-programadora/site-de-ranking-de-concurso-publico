@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import React from 'react'
 
 import Imgfooter from '../../assets/logoDoSIte.png'
@@ -17,7 +17,7 @@ function TelaDoUsuario() {
     const [count, setCount] = useState(0);
 
     function menuUsuario() {
-        const menu = document.querySelector(`.${styles.menu_usuario}`);
+        const menu = document.querySelector(`.${Styles.menu_usuario}`);
         if (menu.style.display === 'block') {
             menu.style.display = 'none';
         } else {
@@ -27,7 +27,7 @@ function TelaDoUsuario() {
 
     async function fetchFiles() {
         try {
-            const response = await fetch('URL_DA_API'); // Substitua pela URL da API
+            const response = await fetch(''); // Substitua pela URL da API
             const data = await response.json();
             
             const fileList = document.getElementById('file-list');
@@ -59,8 +59,8 @@ function TelaDoUsuario() {
     }, []);
 
     return (
-        <div className={Styles.container}>
-            <header className={Styles.cabecalho}>
+        <div className={Styles.containerTelaUsuario}>
+            <header className={Styles.cabecalhoTelaUsuario}>
                 <img className={Styles.img_usuario} src={Usuario} alt="" onClick={menuUsuario} />
                 <div className={Styles.nome_do_concurso} id="concurso"></div>
                 <p className={Styles.concurso}>nome do concurso</p>
@@ -81,7 +81,7 @@ function TelaDoUsuario() {
                     <div className={Styles.mais_informacoes}>
                         <div className={Styles.nome_usuario}>nome da pessoa</div>
                         <label htmlFor="concursos">concursos</label>
-                        <select name="concursos" id="concursos">
+                        <select name="concursos" id="concursos" className={concurso}>
                             <option value="1"></option>
                         </select>
 
@@ -120,7 +120,7 @@ function TelaDoUsuario() {
                 <div className={Styles.estatistica_do_mais_cobrado}>
                     <img src={Estatistica} alt="" />
                     <h2>O que é mais cobrado neste concurso</h2>
-                    <ul id="file-list">
+                    <ul className={fileList}>
                         <p id="no-files-message" style={{ display: 'none' }}>Nenhum arquivo disponível para download.</p>
                     </ul>
                 </div>

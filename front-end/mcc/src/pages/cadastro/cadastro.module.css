@@ -9,13 +9,12 @@
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(to right, #0D013A, #6c3483); /* Degradê com o tom #0D013A */
-    display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.container {
+.containerCadastro {
     background: white;
     padding: 30px; /* Aumentado o padding para aumentar a altura do formulário */
     border-radius: 15px; /* Bordas mais arredondadas */
@@ -24,6 +23,12 @@ body {
     max-width: 400px; /* Largura máxima do formulário */
     text-align: center; /* Centraliza o texto dentro da seção */
     position: relative;
+    margin: auto;
+
+    & .normal2 {
+        background-color: white;
+    }
+
 }
 
 .sair-link {
@@ -35,19 +40,6 @@ body {
 .sair {
     width: 20px;
     height: 20px;
-}
-
-h2 {
-    margin-bottom: 15px;
-    color: #333;
-}
-
-p {
-    margin-bottom: 20px;
-    margin-top: 15px;
-    color: #000000;
-    font-size: 14px;
-    font-weight: bold;
 }
 
 input {
@@ -76,20 +68,10 @@ button:hover {
     background-color: #732d91; /* Cor do botão ao passar o mouse */
 }
 
-a {
-    display: block; /* Faz o link ocupar toda a largura disponível */
-    margin-top: 10px; /* Espaçamento entre os links */
-    color: #6c6c6c; /* Links em cinza mais claro */
-    text-decoration: none; /* Sem decoração */
-}
-
-a:hover {
-    text-decoration: underline; /* Sublinha ao passar o mouse */
-}
 
 /* Responsividade */
 @media (max-width: 480px) {
-    .container {
+    .containerCadastro {
         padding: 15px; /* Menos padding em telas menores */
     }
 
@@ -151,13 +133,13 @@ select option:hover {
 }
 
 /* Estilo para simular o efeito de fundo branco que segue o mouse */
-.select-container {
+.select {
     position: relative;
     display: inline-block;
     width: 100%;
 }
 
-.select-container::after {
+.select::after {
     content: '';
     position: absolute;
     top: 0;
@@ -170,7 +152,7 @@ select option:hover {
     transition: top 0.3s, bottom 0.3s;
 }
 
-select:hover + .select-container::after {
+select:hover + .select::after {
     top: 50%;
     bottom: 50%;
 }

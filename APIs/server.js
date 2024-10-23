@@ -20,8 +20,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.listen(3000);
 
-
-
 //criar admin
 app.post('/admin', async (req, res) => {
     const admin = await prisma.admin.create({

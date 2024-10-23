@@ -9,7 +9,7 @@
 
 }
 
-.cabecalho {
+.cabecalhoTelaUsuario {
     display: flex;
     justify-content: center; /* Centraliza todos os itens no header */
     align-items: center;
@@ -18,11 +18,11 @@
     position: relative;
 }
 
-.usuario {
+.img_usuario {
     cursor: pointer;
 }
 
-.menu-usuario {
+.menu_usuario {
     display: none;/* Esconde o elemento da página */
     position: absolute;/* Define o posicionamento como absoluto, em relação ao contêiner mais próximo com position não estático */
     top: 100%;/* Posiciona o elemento a 100% da altura do contêiner pai a partir do topo */
@@ -38,23 +38,23 @@
     height: 400px;
 }
 
-.img-usuario {
+.img_usuario {
     width: 80px;
 }
 
-.img-sair {
+.img_sair {
     width: 40px;
 }
 
-.img-posicao {
+.posicao_atual {
     width: 40px;
 }
 
-.posicao-atual {
+.posicao_atual {
     text-align: center;
 }
 
-.sair-da-conta {
+.sair_da_conta {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -63,7 +63,7 @@
     padding-bottom: 30px;
 }
 
-.nome-usuario {
+.nome_usuario {
     text-align: center;
     padding-bottom: 40px;
 }
@@ -76,7 +76,7 @@
     border: 1px solid #ccb2ff;
 }
 
-.inscricao > h2, .numero-de-inscricao{
+.inscricao > h2, .numero_de_inscricao{
     font-size: 1em;
     padding-top: 40px;
 }
@@ -87,7 +87,7 @@
 }
 
 /* Centralizar o nome do concurso no header */
-.nome-do-concurso {
+.nome_do_concurso {
     flex: 1; /* Permite que a div ocupe o espaço disponível */
     text-align: center; /* Centraliza o texto dentro da div */
     justify-content: center;
@@ -111,7 +111,7 @@ video {
 
 }
 
-.informacoes-do-concurso {
+.informacoes_do_concurso {
     background-color: #F0E9FE;
     padding: 20px;
     margin: 15px;
@@ -120,7 +120,7 @@ video {
 .estatistica-do-mais-cobrado {
     margin-right: 20px;
 }
-#file-list {
+.fileList {
     background-color: white;
     border: 1px solid #ccc;
     max-height: 300px; /* Ajuste a altura conforme necessário */
@@ -132,26 +132,26 @@ video {
     margin-bottom: 10px;
     border-radius: 10px;
 }
-#file-list li {
+.fileList li {
     margin: 5px 0;
 }
 
-.imagens-informacoes-do-concurso {
+.imagens_informacoes_do_concurso {
     width: 65px;
 }
 
-.participantes, .cargo, .resultados {/*imagens*/
+.participantes, .cargo_pretendido, .resultados {/*imagens*/
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 30px;
 }
 
-.participantes > h2, p, .cargo > h2, p,  .estatistica-do-mais-cobrado > h2{
+.participantes > h2, p, .cargo_pretendido > h2, p,  .estatistica_do_mais_cobrado > h2{
     font-size: 1em;
 }
 
-.estatistica-do-mais-cobrado > h2 {
+.estatistica_do_mais_cobrado > h2 {
     font-size: 1em;
     padding: 10px;
 }
@@ -178,7 +178,7 @@ video {
     
 }
 
-.seu-historico, .aptos-proxima-etapa {
+.seu_historico, .aptos_proxima_etapa {
     background-color: #fff;
     text-align: center;
     padding-top: 20px;
@@ -186,7 +186,7 @@ video {
     height: 450px; 
 }
 
-.etapas-anteriores {
+.etapas_anteriores {
     margin: auto;
     margin-top: 20px;
     height: 40vh;
@@ -205,6 +205,7 @@ footer {
     border-top: 1px solid #ddd;
     background-color: #240046;
     height: auto;
+    color: white;
 }
 
 .footer >  p, a{
@@ -225,16 +226,10 @@ footer {
     padding: 10px;
 }
 
-.rede-social {
-    grid-template-columns: 2fr;
-    border-radius:60px ;
-    border: 1px solid white;
-    padding: 6px;
-}
 
 
 @media screen and (min-width: 480px) and (max-width: 768px) {
-    .img-usuario {
+    .img_usuario {
         width: 70px;
     }
 
@@ -252,7 +247,7 @@ footer {
 }
 
 @media (width < 600px){
-    .img-usuario {
+    .img_usuario {
         width: 60px;
     }
 

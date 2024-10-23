@@ -18,7 +18,7 @@ function Logar() {
                 <input type="number" name="inscricao" id="inscricao" placeholder="Coloque seu número de inscrição" required /><br />
                 <input type="text" name="usuario" id="usuario" placeholder="Nome de usuário" required />
                 <button type="submit" className={Styles.logar}>Logar</button>
-                <a href="#" className={Styles.sair}><img src={Sair} alt="Sair" /></a>
+                <a href="#" ><img className={Styles.sair} src={Sair} alt="Sair" /></a>
             </form>
             <a href="/cadastro">Não tem uma conta? Cadastre-se</a><br />
             <a href="/logar-admin">Logar como administrador</a>

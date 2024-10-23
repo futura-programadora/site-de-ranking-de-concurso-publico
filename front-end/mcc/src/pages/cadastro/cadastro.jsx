@@ -11,7 +11,7 @@ function Cadastro() {
     const [count, setCount] = useState(0)
 
     return (
-        <div className={Styles.container}>
+        <div className={Styles.containerCadastro}>
             <h2 className={Styles.normal2}>Cadastre-se</h2>
             <img src={Logo} alt="Lupa com gráfico" />
             <p>Escolha um plano para continuar o cadastro</p>
@@ -26,10 +26,10 @@ function Cadastro() {
                 <input type="text" name="usuario" id="usuario" placeholder="Nome de usuário" required />
                 <input type="password" name="senha" id="senha" placeholder="Escolha uma senha" required />
                 <button type="submit">Cadastrar-se</button>
-                <a href="#" className={Styles.sair}><img src={Sair} alt="Sair" /></a>
+                <a href="#" ><img className={Styles.sair} src={Sair} alt="Sair" /></a>
             </form>
-            <a href="/logar">Já tem uma conta? Faça o login</a><br />
-            <a href="/logar-admin">Logar como administrador</a>
+            <a className={Styles.linkCadastro} href="/logar">Já tem uma conta? Faça o login</a><br />
+            <a className={Styles.linkCadastro} href="/logar-admin">Logar como administrador</a>
         </div>
     )
 }

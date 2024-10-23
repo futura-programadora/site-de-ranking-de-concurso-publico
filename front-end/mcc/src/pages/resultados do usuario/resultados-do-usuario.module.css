@@ -15,7 +15,7 @@ body {
 }
 /* Define a cor de fundo da página */
 
-.container > a > span {
+.containerResultadosUsuario > a > span {
     color: #240046;
     font-size: 45px;
     padding: 8px;
@@ -25,7 +25,7 @@ body {
 }
 /* Estiliza o ícone de voltar: cor do texto, tamanho da fonte, padding, margin, bordas arredondadas e borda */
 
-.container > a > span:hover {
+.containerResultadosUsuario > a > span:hover {
     background-color: #470089;
     color: white;
     cursor: pointer;
@@ -33,7 +33,7 @@ body {
 }
 /* Estilo do ícone de voltar ao passar o mouse: cor de fundo, cor do texto, cursor como pointer e borda */
 
-.resultados-recentes, .resultados-antigos, .Cronograma-de-estudos {
+.resultadosRecentes, .resultadosAntigos, .cronogramaDeEstudos {
     background-color: white;
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.282);
@@ -43,19 +43,19 @@ body {
 }
 /* Estilo das seções de resultados recentes e antigos: cor de fundo, bordas arredondadas, borda com transparência, padding, margin e altura */
 
-.resultados-recentes h2, .resultados-antigos h2, .Cronograma-de-estudos h2 {
+.resultadosRecentes h2, .resultadosAntigos h2, .cronogramaDeEstudos h2 {
     text-align: center;
     margin-bottom: 20px;
 }
 /* Centraliza o texto dos títulos das seções e adiciona margem inferior */
 
-.resultados-recentes p, .resultados-antigos p, .Cronograma-de-estudos p, .oque-estudar-mais  {
+.resultadosRecentes p, .resultadosAntigos p, .cronogramaDeEstudos p, .oqueEstudarMais  {
     word-wrap: break-word;
     padding: 5px;
 }
 /* Faz com que as palavras quebrem para a próxima linha se forem muito longas */
 
-.resultados, .resultados-anteriores {
+.resultados, .resultadosAnteriores {
     padding: 20px;
     margin: auto;
     width: 80%;
@@ -75,7 +75,7 @@ body {
 }
 /* Define os resultados como flexbox, permite quebra de linha, espaço entre elementos e adiciona margem inferior */
 
-.resultado > div {
+.resultado > div{
     flex: 1 1 100%; /* Faz com que as divs internas ocupem 100% do espaço disponível em telas menores */
     margin-bottom: 5px; /* Espaço entre os elementos internos */
 }
@@ -97,7 +97,7 @@ footer {
     color: white;
 }
 
-.logo-do-site-footer {
+.logoDoSiteFooter {
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -110,20 +110,13 @@ footer {
     padding: 10px;
 }
 
-.rede-social {
-    grid-template-columns: 2fr;
-    border-radius:60px ;
-    border: 1px solid white;
-    padding: 6px;
-}
-
 
 
 
 /* Estilo das divs internas dos resultados: faz com que ocupem 100% do espaço disponível em telas pequenas e adiciona margem inferior */
 
 @media screen and (min-width: 480px) and (max-width: 768px) {
-    .resultados, .resultados-anteriores {
+    .resultados, .resultadosAnteriores {
         padding: 20px;
         margin: auto;
         width: 90%;
@@ -137,7 +130,7 @@ footer {
 /* Ajusta o estilo dos contêineres de resultados para telas de 480px a 768px: padding, margin, largura, altura, borda com transparência, bordas arredondadas, peso da fonte e barra de rolagem vertical */
 
 @media (max-width: 600px) {
-    .resultados, .resultados-anteriores {
+    .resultados, .resultadosAnteriores {
         padding: 20px;
         margin: auto;
         width: 90%;

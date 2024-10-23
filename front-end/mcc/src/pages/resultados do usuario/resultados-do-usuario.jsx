@@ -60,8 +60,8 @@ function ResultadosDoUsuario() {
     };
 
     return (
-        <div className={Styles.container}>
-            <a href="javascript:history.back()" className={Styles.backIcon}>
+        <div className={Styles.containerResultadosUsuario}>
+            <a href="javascript:history.back()" className={Styles.iconeSair}>
                 <span className="material-icons">arrow_back</span> {/* Ícone de voltar */}
             </a>
 

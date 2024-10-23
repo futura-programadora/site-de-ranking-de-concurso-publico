@@ -3,15 +3,15 @@ import React from 'react';
 
 import Logo from '../../assets/lupa.png';
 import Imgfooter from '../../assets/logoDoSIte.png';
-import styles from './detalhes.module.css'; // Importando os estilos como um módulo
+import Styles from './detalhes.module.css'; // Importando os estilos como um módulo
 import Video from '../../assets/videoDeDetalhes.mp4';
 
 function Detalhes() {
     const [count, setCount] = useState(0);
 
     const toggleMenu = () => {
-        const menu = document.querySelector(`.${styles.linksCabecalho}`);
-        menu.classList.toggle(styles.show);
+        const menu = document.querySelector(`.${Styles.linksCabecalho}`);
+        menu.classList.toggle(Styles.show);
     };
 
     const irParaLogin = () => {
@@ -25,25 +25,25 @@ function Detalhes() {
     };
 
     return (
-        <section className={styles.container}>
-            <header className={styles.cabecalho}>
+        <section className={Styles.container}>
+            <header className={Styles.cabecalho}>
                 <div>
-                    <img className={styles.imgCabecalho} src={Logo} alt="Logo do site" />
+                    <img className={Styles.imgCabecalho} src={Logo} alt="Logo do site" />
                 </div>
-                <nav className={styles.linksCabecalho}>
+                <nav className={Styles.linksCabecalho}>
                     <a href="/">Início</a>
                     <a href="/detalhes">Detalhes</a>
                     <a href="/concursos">Concursos</a>
-                    <button className={styles.login} onClick={irParaLogin}>Login</button>
+                    <button className={Styles.login} onClick={irParaLogin}>Login</button>
                 </nav>
-                <div className={styles.menuHamburguer} onClick={toggleMenu} aria-label="Menu">
-                    <span className={styles.bar}></span>
-                    <span className={styles.bar}></span>
-                    <span className={styles.bar}></span>
+                <div className={Styles.menuHamburguer} onClick={toggleMenu} aria-label="Menu">
+                    <span className={Styles.bar}></span>
+                    <span className={Styles.bar}></span>
+                    <span className={Styles.bar}></span>
                 </div>
             </header>
-            <main className={styles.conteudo}>
-                <section className={styles.descricaoCompleta}>
+            <main className={Styles.conteudo}>
+                <section className={Styles.descricaoCompleta}>
                     <h2 className='normal'>Descrição completa do site</h2>
                     <p>Bem-vindo ao nosso site de Ranking Público, a sua plataforma definitiva para acompanhar resultados de concursos de forma prática e eficiente. O nosso objetivo é simplificar a busca por informações relevantes, permitindo que você acesse rapidamente os rankings dos concursos em que participa.</p>
                     <p>Aqui, os usuários podem se inscrever em planos mensais, semestrais ou anuais, garantindo acesso ilimitado aos dados dos concursos. Nossa plataforma é projetada para oferecer uma experiência amigável, onde os resultados são apresentados de forma clara e intuitiva, permitindo que você encontre facilmente as informações necessárias sem perder tempo em pesquisas.</p>
@@ -52,10 +52,10 @@ function Detalhes() {
                     <p>Cadastre-se agora e tenha acesso a conteúdos exclusivos, mantendo-se sempre atualizado com as informações mais relevantes sobre concursos públicos!</p>
                     <p>Para dúvidas ou suporte, entre em contato conosco através do nosso formulário de suporte.</p>
                 </section>
-                <section className={styles.videoSobreSite}>
+                <section className={Styles.videoSobreSite}>
                     <video src={Video} controls autoPlay muted loop></video>
                 </section>
-                <section className={styles.especificacoesTecnicas}>
+                <section className={Styles.especificacoesTecnicas}>
                     <h2 className='normal'>Especificações Técnicas</h2>
                     <h3>Frontend</h3>
                     <ul>
@@ -124,17 +124,17 @@ function Detalhes() {
                         <li><strong>Versionamento</strong>: Uso de versionamento para bancos de dados e arquivos críticos.</li>
                     </ul>
                 </section>
-                <section className={styles.nossosPlanos}>
+                <section className={Styles.nossosPlanos}>
                     <h2>Sobre nossos planos</h2>
                     <p>
                         Escolher um plano é essencial para maximizar suas chances de sucesso nos concursos. Nós oferecemos três opções de assinatura para atender às suas necessidades. O <strong>Plano Mensal</strong> custa <strong>R$ 4,99</strong> e proporciona acesso aos rankings de concursos por um mês. O <strong>Plano Semestral</strong>, por R$ 24,99, oferece acesso por seis meses. Por fim, o <strong>Plano Anual</strong>, ao custo de <strong>R$ 44,99</strong>, garante acesso por um ano. Todos os planos oferecem os mesmos recursos, incluindo atualizações frequentes sobre os resultados, análises e dicas de estudo, relatórios detalhados sobre desempenho e acesso a webinars exclusivos.
                     </p>
                 </section>
 
-                <section className={styles.formularioDeContato}>
+                <section className={Styles.formularioDeContato}>
                     <h2>Entre em contato</h2>
                     <p>Caso tenha identificado algum problema, entre em contato com nossa equipe!</p>
-                    <form className={styles.entreEmContato}>
+                    <form className={Styles.entreEmContato}>
                         <label htmlFor="motivo-do-contato">Coloque o motivo do contato</label><br />
                         <input type="text" name="motivo-do-contato" id="motivo-do-contato" /><br />
 
@@ -144,10 +144,10 @@ function Detalhes() {
                         <button type="submit">Enviar</button>
                     </form>
                 </section>
-                <section className={styles.avaliacoesDoSite}>
+                <section className={Styles.avaliacoesDoSite}>
                     <h2>Avaliações e feedbacks</h2>
-                    <div className={styles.avaliacoes}>
-                        <div className={styles.emoji}>
+                    <div className={Styles.avaliacoes}>
+                        <div className={Styles.emoji}>
                             {/* ADICIONAR O EMOJI AQUI */}
                         </div>
                         
@@ -173,33 +173,33 @@ function Detalhes() {
                         <option value="😊">😊</option>
                     </select>
                 </section>
-                <section className={styles.todosOsAcessos}>
+                <section className={Styles.todosOsAcessos}>
                     <h2>Acessos em nosso site. Junte-se a nós também!</h2>
-                    <section className={styles.quantidadeDeAcessos}>
+                    <section className={Styles.quantidadeDeAcessos}>
                         <p>Todos os acessos até hoje:</p>
-                        <div className={styles.acessos}>0{/* Colocar aqui */}</div>
+                        <div className={Styles.acessos}>0{/* Colocar aqui */}</div>
                         {/* Aqui você pode colocar a quantidade de pessoas que já entraram na primeira página 
                             e atualizar em tempo real se possível */}
                     </section>
                 </section>
             </main>
             <footer>
-                <img className={styles.logoDoSiteFooter} src={Imgfooter} alt="" />
+                <img className={Styles.logoDoSiteFooter} src={Imgfooter} alt="" />
                 <p>Nos siga nas redes sociais. Seu feedback é importante</p>
-                <section className={styles.sociais}>
+                <section className={Styles.sociais}>
                     <a
-                        className={styles.rede}
+                        className={Styles.rede}
                         href="https://www.instagram.com/minhaclassificacaoconcursos?igsh=eWU5Y3Y0emE3eGgx"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
                         <i className="ri-instagram-line"></i>
                     </a>
-                    <a className={styles.rede} href="" target="_blank" rel="noopener noreferrer">
+                    <a className={Styles.rede} href="" target="_blank" rel="noopener noreferrer">
                         <i className="ri-facebook-line"></i>
                     </a>
                     <a
-                        className={styles.rede}
+                        className={Styles.rede}
                         href="https://www.tiktok.com/@vencendoosconcursos?_t=8q4czZHV781&_r=1"
                         target="_blank"
                         rel="noopener noreferrer"

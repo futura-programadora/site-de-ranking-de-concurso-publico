@@ -11,7 +11,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.cabecalho {
+.cabecalhoTelaDoAdmin {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,20 +19,24 @@ body{
     background-color:white ;
 }
 
-.img-usuario-admin {
+.imgUsuarioAdmin {
     width: 80px;
 }
 
-.img-documento {
+.Notificacao {
+    width: 80px;
+}
+
+.imgDocumento {
     width: 40px;
 }
 
-.tratamento-de-dados > h2 {
+.tratamentoDeDados > h2 {
     padding: 10px;
     color: #A0A0A0;
 }
 
-.concursos {
+.concursosTelaAdmin {
     margin: auto;
     display: flex;
     justify-content: space-between;
@@ -41,7 +45,7 @@ body{
     padding: 20px;
 }
 
-.select-concurso {
+.selectConcurso {
     width: 120px;
     border-radius: 10px;
     padding: 6px;
@@ -50,7 +54,7 @@ body{
     font-weight: bold;
 }
 
-.tratamento-de-dados{
+.sistemaDeTratamento{
     background-color: white;
     width: 90vw;
     height: 400px;
@@ -94,18 +98,18 @@ body{
     background-color: #6d00d3; /* Cor de fundo ao passar o mouse */
 }
 
-.usuarios, .concursos-disponiveis  {
+.usuarios, .concursosDisponiveis  {
     background-color: white;
     color: #7c7c7c;
     height: 450px;
     padding: 15px;
 }
 
-.usuarios > h2, .concursos-disponiveis > h2 {
+.usuarios > h2, .concursosDisponiveis > h2 {
     text-align: center;
 }
 
-#todos-os-usuarios-logados, #todos-os-concursos  {
+.todosOsUsuariosLogados, .todosOsConcursos  {
     margin: auto;
     margin-top: 20px;
     height: 40vh;
@@ -115,23 +119,23 @@ body{
     overflow-y: auto;
 }
 
-#onde-vai-a-estatistica {
+.arquivoDaEstatistica {
     width: 100px;
     height: 35px;
     border-radius: 10px;
 }
 
-#todos-os-usuarios-logados > p, #todos-os-concursos > p {/*css do paragrafo que sera adicionado a partir do js e api*/
+.todosOsUsuariosLogados > p, .todosOsConcursos  > p {/*css do paragrafo que sera adicionado a partir do js e api*/
     padding: 10px;
     padding-left: 15px;
 }
-.mais-informacoes {
+.maisInformacoes {
     background-color: white;
     margin-top: 20px;
     padding: 20px;
 }
 
-.mais-informacoes  input {
+.maisInformacoes  input {
     margin: 10px;
     padding: 10px;
     width: 70vh;
@@ -139,7 +143,7 @@ body{
     border: 1px solid gray;
 }
 
-.mais-informacoes button {
+.maisInformacoes button {
     padding: 10px;
     border-radius: 10px;
     background-color: #4D0095;
@@ -149,7 +153,7 @@ body{
     margin-bottom: 10px;
 }
 
-.mais-informacoes button:hover {
+.maisInformacoes button:hover {
     border: 1px solid white;
     box-shadow: 8px 8px 10px #9f39ff5e;
 }
@@ -169,7 +173,7 @@ footer {
     color: white;
 }
 
-.logo-do-site-footer {
+.logoDoSiteFooter {
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -182,34 +186,27 @@ footer {
     padding: 10px;
 }
 
-.rede-social {
-    grid-template-columns: 2fr;
-    border-radius:60px ;
-    border: 1px solid white;
-    padding: 6px;
-}
-
 
 @media screen and (min-width: 480px) and (max-width: 768px) {
-    .img-usuario-admin {
+    .imgUsuarioAdmin {
         width: 70px;
     }
 
-    .mais-informacoes  input {
+    .maisInformacoes  input {
         width: 45vh;
     }
 }
 
 @media (width < 600px) {
-    .img-usuario-admin {
+    .imgUsuarioAdmin {
         width: 60px;
     }
 
-    .mais-informacoes  input {
+    .maisInformacoes  input {
         width: 30vh;
     }
 
-    .mais-informacoes button {
+    .maisInformacoes button {
         margin-bottom: 10px;
     }
 }
