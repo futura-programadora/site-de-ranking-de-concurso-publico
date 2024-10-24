@@ -17,11 +17,11 @@ function Logar() {
             <form className={Styles.formLogin}>
                 <input type="number" name="inscricao" id="inscricao" placeholder="Coloque seu número de inscrição" required /><br />
                 <input type="text" name="usuario" id="usuario" placeholder="Nome de usuário" required />
-                <button type="submit" className={Styles.logar}>Logar</button>
-                <a href="#" ><img className={Styles.sair} src={Sair} alt="Sair" /></a>
+                <button type="submit" className={Styles.botaoLogar}>Logar</button>
+                <a href="#" ><img className={Styles.botaoSair} src={Sair} alt="Sair" /></a>
             </form>
-            <a href="/cadastro">Não tem uma conta? Cadastre-se</a><br />
-            <a href="/logar-admin">Logar como administrador</a>
+            <a className={Styles.linkDeLogar} href="/cadastro">Não tem uma conta? Cadastre-se</a><br />
+            <a className={Styles.linkDeLogar} href="/logar-admin">Logar como administrador</a>
         </div>
 
     )

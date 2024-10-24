@@ -22,6 +22,7 @@ body {
     position: relative;
     padding-bottom: 0.75rem;
     color: #000000;
+    padding: 10px 10px 12px;
 }
 
 nav > a::after {
@@ -40,7 +41,7 @@ nav > a:hover::after {
 }
 
 /* Estilos do cabeçalho */
-.cabecalho {
+.cabecalhoHome {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -55,6 +56,7 @@ nav > a:hover::after {
     gap: 20px; /* Espaço entre os links */
     flex-wrap: nowrap; /* Evita que os links se movam para baixo */
     font-weight: bold;
+    font-size: 16px;
 }
 
 .login {
@@ -147,7 +149,7 @@ nav > a:hover::after {
     padding: 8px;
 }
 
-.container > h2 {
+.containerHome > h2 {
     padding: 20px;
 }
 

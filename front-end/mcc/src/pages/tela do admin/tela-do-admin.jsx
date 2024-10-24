@@ -20,7 +20,7 @@ function TelaDoAdmin() {
             <section className={Styles.subCabecalho}>
                 <section className={Styles.tratamentoDeDados}>
                     <h2>Sistema de tratamento de dados</h2>
-                    <section className={Styles.concursos}>
+                    <section className={Styles.concursosDoSite}>
                         <img className={Styles.imgDocumento} src={Documento} alt="" />
                         <select className={Styles.selectConcurso} name="opcoes-concursos" id="opcoes-concursos">
                             <option value="concurso">concurso</option>

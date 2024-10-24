@@ -67,7 +67,7 @@ function ResultadosDoUsuario() {
 
             <section className={Styles.resultadosRecentes}>
                 <h2>Resultados recentes</h2>
-                <div className={Styles.resultados}>
+                <div className={Styles.resultadosRecentes}>
                     <div className={Styles.resultado}>
                         <div className={Styles.nomeDaProva}></div>
                         <div className={Styles.notas}></div>
@@ -107,16 +107,16 @@ function ResultadosDoUsuario() {
                     />
                     <button onClick={adicionarMateria}>Adicionar Matéria</button> {/* Botão para adicionar a matéria */}
                 </div>
-                <div className={Styles.resultados}>
+                <div className={Styles.resultadosParaCronograma}>
                     {materias.map((materia, index) => (
                         <div key={index} className={Styles.materia}>
                             <div className={Styles.nomeDaProva}>{materia.nome}</div>
-                            <div className={Styles.notas}>Nota: {materia.nota}</div>
+                            <div className={Styles.notasTiradas}>Nota: {materia.nota}</div>
                         </div>
                     ))}
                 </div>
                 {materias.length > 0 && !mostraTempoDisponivel && (
-                    <div className={Styles.finalizar}>
+                    <div className={Styles.finalizarCronograma}>
                         <button onClick={() => setMostraTempoDisponivel(true)}>Adicionar Tempo de Estudo Disponível</button> {/* Botão para mostrar o campo de tempo disponível */}
                     </div>
                 )}

@@ -63,7 +63,7 @@ function TelaDoUsuario() {
             <header className={Styles.cabecalhoTelaUsuario}>
                 <img className={Styles.img_usuario} src={Usuario} alt="" onClick={menuUsuario} />
                 <div className={Styles.nome_do_concurso} id="concurso"></div>
-                <p className={Styles.concurso}>nome do concurso</p>
+                <p className={Styles.concursoNome}>nome do concurso</p>
 
                 <div className={Styles.posicao_atual}>
                     <img className={Styles.img_posicao} src={Posicao} alt="" />

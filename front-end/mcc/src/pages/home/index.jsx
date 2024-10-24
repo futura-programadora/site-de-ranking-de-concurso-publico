@@ -20,7 +20,7 @@ function Home() {
 
     return (
         <section className={Styles.containerHome}>
-            <header className={Styles.cabecalho}>
+            <header className={Styles.cabecalhoHome}>
                 <div>
                     <img className={Styles.imgCabecalho} src={Logo} alt="logo do cabeçalho" />
                 </div>
